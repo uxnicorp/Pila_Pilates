@@ -6,33 +6,47 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import startLogin from '../helper/startLogin';
 
-const ModalLogin = ({show, handleClose}) => {
+const ModalLogin = ({ show, handleClose }) => {
 
     const [user, setUser] = useState({
-        email:"",
-        password:""
+        email: "",
+        password: ""
     });
 
     const navigate = useNavigate()
 
     //Captura cambios de los input
-    const onInputChange = (e) =>{
+    const onInputChange = (e) => {
         setUser({
             ...user,
-            [e.target.name]:e.target.value
+            [e.target.name]: e.target.value
         })
     }
 
     const onSubmit = (e) => {
         e.preventDefault();
-        if (user.email.trim() === "" || user.password.trim() === ""){
+        if (user.email.trim() === "" || user.password.trim() === "") {
             Swal.fire({
                 title: '¡Error!',
                 text: 'Todos los campos son obligatorios.',
                 icon: 'error',
                 confirmButtonText: 'Aceptar'
             });
-        }else{
+            return;
+        }
+
+        // Validación del email
+        if (user.email.length > 0 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(user.email)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Email inválido',
+                text: 'Por favor, ingrese un email válido.',
+                confirmButtonText: 'Aceptar'
+            });
+            return;
+        }
+
+        else {
             //LLAMADO AL BACKEND
             startLogin(user.email, user.password, navigate)
         }

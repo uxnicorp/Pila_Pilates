@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import ModalLogin from './componentes/ModalLogin';
+import ModalRegistro from './componentes/ModalRegister';
 
 const Home = () => {
 
@@ -10,12 +11,20 @@ const Home = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    //Para Modal de Register
+    const [showR, setShowR] = useState(false);
+
+    const handleCloseReg = () => setShowR(false);
+    const handleShowReg = () => setShowR(true);
+
 
 
     return (
         <>
             <Button variant="primary" onClick={handleShow}>Ingresá con tu usuario</Button>
-            <ModalLogin show={show} handleClose={handleClose}/>
+            <Button variant="primary" onClick={handleShowReg}>Inscribite ahora</Button>
+            <ModalLogin show={show} handleClose={handleClose} />
+            <ModalRegistro show={showR} handleClose={handleCloseReg} />
         </>
     )
 }
