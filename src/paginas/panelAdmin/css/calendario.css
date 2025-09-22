@@ -1,0 +1,99 @@
+/* Calendario.css */
+.calendar-container {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+.fc-header-toolbar {
+  margin-bottom: 10px !important;
+  padding: 8px;
+  background-color: #e9ecef;
+  border-radius: 6px;
+}
+
+.fc-toolbar-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #495057;
+}
+
+.fc-prev-button, 
+.fc-next-button {
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+  padding: 0.25rem 0.5rem;
+}
+
+.fc-daygrid-day {
+  transition: background-color 0.2s;
+}
+
+.fc-daygrid-day.modo-seleccion {
+  cursor: pointer;
+}
+
+.fc-daygrid-day.modo-seleccion:hover {
+  background-color: #e3f2fd;
+}
+
+.fc-daygrid-day.fc-day-disabled {
+  background-color: #f8d7da;
+  cursor: not-allowed;
+}
+
+.disponibilidad-indicator {
+  font-size: 0.7em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.disponibilidad-indicator.disponible {
+  color: #28a745;
+}
+
+.disponibilidad-indicator.llena {
+  color: #dc3545;
+}
+
+.fc-event {
+  border-radius: 4px;
+  border: none;
+}
+
+.fc-event.fecha-seleccionada {
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .calendar-container {
+    padding: 5px;
+  }
+  
+  .fc-header-toolbar {
+    padding: 5px;
+    margin-bottom: 5px !important;
+  }
+  
+  .fc-toolbar-title {
+    font-size: 1rem;
+  }
+  
+  .disponibilidad-indicator {
+    font-size: 0.6em;
+  }
+}
+
+@media (max-width: 576px) {
+  .fc-header-toolbar {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .fc-toolbar-chunk {
+    width: 100%;
+    text-align: center;
+  }
+}
