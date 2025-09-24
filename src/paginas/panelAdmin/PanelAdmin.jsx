@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Alert, Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
+import { useEffect, useState } from 'react'
+import { Alert, Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import SelectEmpleado from './componentes/Select_Empleados';
 import SelectorHoras from './componentes/Selector_horas';
@@ -7,6 +7,7 @@ import { crearTurnosPorLote } from './helper/crearTurnos';
 import { obtenerTurnosParaCalendario } from './helper/cargarTurnos';
 import Calendario from './componentes/Calendario';
 import { NavBar } from '../../Componentes/Navbar';
+import MostrarTurnos from '../../Componentes/MostrarTurnos';
 
 export const PanelAdmin = () => {
 
@@ -303,6 +304,13 @@ export const PanelAdmin = () => {
             onFechaSeleccionada={handleFechaSeleccionada}
             limiteTurnosPorDia={2}
           />
+        </Col>
+      </Row>
+
+      {/* SECCIÓN DE MOSTRAR TURNOS */}
+      <Row className="mt-5">
+        <Col>
+          <MostrarTurnos tipoUsuario="admin" userInfo={user} />
         </Col>
       </Row>
     </Container>

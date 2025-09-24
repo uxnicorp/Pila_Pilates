@@ -1,6 +1,6 @@
-import React from 'react'
 import { NavBar } from '../../Componentes/Navbar'
 import { useLocation } from 'react-router-dom';
+import MostrarTurnos from '../../Componentes/MostrarTurnos';
 
 export const PanelCliente = () => {
 
@@ -10,7 +10,10 @@ export const PanelCliente = () => {
   return (
     <div>
       <NavBar user={user} />
-      <h1>PanelCliente</h1>
+      <div style={{ padding: '20px' }}>
+        <h1>Panel Cliente</h1>
+        <MostrarTurnos tipoUsuario="cliente" userInfo={user} />
       </div>
+    </div>
   )
 }
