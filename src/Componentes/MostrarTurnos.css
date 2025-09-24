@@ -1,0 +1,351 @@
+/*
+    MostrarTurnos.css
+
+    Acá están todos los estilos para que el componente MostrarTurnos se vea piola y ordenado.
+    Hay estilos para cada parte: el título, la lista, las tarjetas, los botones, los mensajes, etc.
+
+
+    Está todo comentado para que no te pierdas. Si algo no te gusta, lo cambiás y listo.
+*/
+/* Estilos para el componente MostrarTurnos */
+
+.mostrar-turnos {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Control temporal para cambiar tipo de usuario */
+.tipo-usuario-control {
+    background: #f8f9fa;
+    border: 2px dashed #007bff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.tipo-usuario-control label {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #495057;
+}
+
+.select-tipo-usuario {
+    padding: 8px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.select-tipo-usuario:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Título principal */
+.turnos-titulo {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+/* Estados de carga y error */
+.turnos-loading, .turnos-error, .no-turnos {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2rem;
+    color: #6c757d;
+}
+
+.turnos-error {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+}
+
+/* Lista de turnos */
+.turnos-lista {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.turnos-lista-columna {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Tarjeta de turno */
+.turno-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.turno-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.turno-card.turno-pasado {
+    opacity: 0.7;
+    background: #f8f9fa;
+}
+
+/* Header del turno */
+.turno-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.turno-fecha h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+}
+
+.turno-horario {
+    margin: 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.servicio-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Cuerpo del turno */
+.turno-body {
+    padding: 20px;
+}
+
+/* Información del profesional */
+.turno-profesional {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #e8f4f8;
+    border-radius: 8px;
+    border-left: 4px solid #17a2b8;
+}
+
+.turno-profesional h4 {
+    margin: 0 0 8px 0;
+    color: #0c5460;
+    font-size: 1rem;
+}
+
+.turno-profesional p {
+    margin: 0;
+    font-weight: 500;
+    color: #495057;
+}
+
+/* Información de reservas (solo admin) */
+.turno-reservas {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #fff3cd;
+    border-radius: 8px;
+    border-left: 4px solid #ffc107;
+}
+
+.turno-reservas h4 {
+    margin: 0 0 12px 0;
+    color: #856404;
+    font-size: 1rem;
+}
+
+.lista-clientes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cliente-item {
+    padding: 8px 12px;
+    margin: 4px 0;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cliente-item.cancelado {
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+
+.estado-cancelado {
+    color: #dc3545;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Información de cupos (cliente) */
+.turno-cupos {
+    padding: 15px;
+    background: #d1ecf1;
+    border-radius: 8px;
+    border-left: 4px solid #bee5eb;
+    margin-bottom: 20px;
+}
+
+.turno-cupos p {
+    margin: 0;
+    color: #0c5460;
+    font-weight: 500;
+}
+
+/* Acciones del turno */
+.turno-acciones {
+    padding: 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-modificar, .btn-cancelar {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.btn-modificar {
+    background: #007bff;
+    color: white;
+}
+
+.btn-modificar:hover {
+    background: #0056b3;
+    transform: translateY(-1px);
+}
+
+.btn-cancelar {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-cancelar:hover {
+    background: #c82333;
+    transform: translateY(-1px);
+}
+
+.btn-asistencia {
+  background: #17a2b8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.3s;
+}
+
+.btn-asistencia:hover {
+  background: #138496;
+}
+
+/* Mensaje de restricción */
+.mensaje-restriccion {
+    padding: 15px;
+    background: #f8d7da;
+    border-radius: 8px;
+    border-left: 4px solid #dc3545;
+    text-align: center;
+}
+
+.mensaje-restriccion p {
+    margin: 0;
+    color: #721c24;
+    font-weight: 500;
+}
+
+/* Turno completado */
+.turno-completado {
+    padding: 20px;
+    background: #d4edda;
+    border-top: 1px solid #c3e6cb;
+    text-align: center;
+}
+
+.turno-completado span {
+    color: #155724;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .mostrar-turnos {
+        padding: 15px;
+    }
+    
+    .turnos-lista {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .turno-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .turno-acciones {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .btn-modificar, .btn-cancelar {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .turnos-titulo {
+        font-size: 1.5rem;
+    }
+    
+    .turno-header {
+        padding: 15px;
+    }
+    
+    .turno-body {
+        padding: 15px;
+    }
+    
+    .turno-acciones {
+        padding: 15px;
+    }
+}
