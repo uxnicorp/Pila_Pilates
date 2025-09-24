@@ -16,6 +16,23 @@
     rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PilaPilates Studio</title>
+  <!--
+    INTEGRACIÓN DE ONESIGNAL (NOTIFICACIONES PUSH)
+    ------------------------------------------------
+    Este script carga el SDK de OneSignal y lo inicializa con tu appId.
+    Es necesario para que la web pueda mostrar el prompt de suscripción y recibir notificaciones push.
+    No modificar ni eliminar este bloque.
+    Más info: https://documentation.onesignal.com/docs/web-push-quickstart
+  -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "5e0ae9ac-b242-404f-857c-98a1b5c98a97",
+      });
+    });
+  </script>
 </head>
 
 <body>
