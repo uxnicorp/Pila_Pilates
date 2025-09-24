@@ -31,9 +31,9 @@ const Home = () => {
                                 un momento para reconectar con vos mismo
                             </h3>
 
-                            <div className="d-flex flex-column align-items-center gap-3">
-                                <Button className="btn btn-home text-white px-4 py-2 rounded-pill fw-semibold" onClick={handleShowReg}>Inscribite ahora</Button>
-                                <Button className="btn btn-home text-white px-4 py-2 rounded-pill fw-semibold" onClick={handleShow}>Ingresá con tu usuario</Button>
+                            <div className="home-buttons d-flex flex-column align-items-center gap-3">
+                                <Button className="btn btn-home text-white px-4 py-2 rounded-pill fw-semibold fs-5" onClick={handleShowReg}>Inscribite ahora</Button>
+                                <Button className="btn btn-home text-white px-4 py-2 rounded-pill fw-semibold fs-5" onClick={handleShow}>Ingresá con tu usuario</Button>
                             </div>
                         </div>
                     </div>

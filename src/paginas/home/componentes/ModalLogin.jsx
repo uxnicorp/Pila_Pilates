@@ -54,7 +54,7 @@ const ModalLogin = ({ show, handleClose }) => {
 
     return (
         <>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Ingresá con tu usuario</Modal.Title>
                 </Modal.Header>
