@@ -1,10 +1,3 @@
-:root{
-    --marronOscuro: #2f1d0f;
-    --marronClaro: #3e2214;
-    --beige: #a1835a;
-    --blanco: #fff8ef;
-    --amarillo: #f4dd99;
-}
 .home-section{
 background-image: url("../../../assets/fondo-home.PNG"); 
   background-size: cover;
@@ -28,6 +21,10 @@ h3{
 .btn-home{
     background-color: var(--marronClaro) !important;
     border: none !important;
-    font-family: "Poppins", sans-serif;
-    width: 250px;
+    font-family: "Poppins", sans-serif !important;
+    width: 320px;
+    height: 60px;
+}
+.home-buttons{
+    margin-top: 15rem;
 }
