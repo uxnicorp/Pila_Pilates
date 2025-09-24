@@ -1,0 +1,33 @@
+:root{
+    --marronOscuro: #2f1d0f;
+    --marronClaro: #3e2214;
+    --beige: #a1835a;
+    --blanco: #fff8ef;
+    --amarillo: #f4dd99;
+}
+.home-section{
+background-image: url("../../../assets/fondo-home.PNG"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+}
+.container-home{
+    padding-top: 30vh;
+}
+h3{
+    color: var(--blanco)!important;
+}
+.txt-home{
+    color: var(--marronOscuro);
+    font-size: 1.1rem;
+    font-family: "Poppins", sans-serif;
+}
+.btn-home{
+    background-color: var(--marronClaro) !important;
+    border: none !important;
+    font-family: "Poppins", sans-serif;
+    width: 250px;
+}
