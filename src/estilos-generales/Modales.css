@@ -1,29 +1,29 @@
 .modal-style{
-    background-color: var(--marronOscuro);
+    background-color: var(--marronOscuro)!important;
     font-family: "Poppins", sans-serif;
     color: var(--blanco);
 }
 
 .btn-modal-close{
-    background-color: var(--blanco);
-    color: var(--marronOscuro);
-    border: none;
+    background-color: var(--blanco)!important;
+    color: var(--marronOscuro)!important;
+    border: none !important;
 }
 
 .btn-modal-close:hover{
-    background-color: var(--marronClaro);
-    color: var(--blanco);
+    background-color: var(--marronClaro)!important;
+    color: var(--blanco)!important;
 }
 
 .btn-modal-send{
-    background-color: var(--beige);
-    color: var(--marronOscuro);
+    background-color: var(--beige)!important;
+    color: var(--marronOscuro)!important;
     font-weight: 500;
-    border: none;
+    border: none !important;
 }
 .btn-modal-send:hover{
-    background-color: var(--marronClaro);
-    color: var(--blanco);
+    background-color: var(--marronClaro)!important;
+    color: var(--blanco)!important;
     font-weight: 500;
 }
 
@@ -36,18 +36,18 @@
 
 .mi-popup {
   border-radius: 20px;
-  background-color: var(--beige);
+  background-color: var(--beige)!important;
   padding: 2rem;
 }
 
 .mi-titulo {
   font-family: 'Merriweather', sans-serif;
   font-size: 1.8rem;
-  color: var(--marronOscuro);
+  color: var(--marronOscuro)!important;
 }
 
 .mi-boton {
-  background-color: var(--marronOscuro);
+  background-color: var(--marronOscuro)!important;
   border-radius: 50px !important;
   padding: 0.6rem 2rem !important;
   font-weight: bold;

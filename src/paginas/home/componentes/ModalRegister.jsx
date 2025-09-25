@@ -98,7 +98,7 @@ const ModalRegistro = ({ show, handleClose }) => {
 
   return (
     <Modal show={show} onHide={handleClose} centered>
-      <Modal.Header closeButton className='modal-style'>
+      <Modal.Header className='modal-style'>
         <Modal.Title>Registrate</Modal.Title>
       </Modal.Header>
       <Modal.Body className='modal-style'>

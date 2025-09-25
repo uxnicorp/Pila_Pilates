@@ -10,10 +10,21 @@ background-image: url("../../../assets/fondo-home.PNG");
 .container-home{
     padding-top: 30vh;
 }
+h2{
+    font-family: 'Merriweather';
+    color: var(--marronClaro) !important;
+}
 h3{
     color: var(--blanco)!important;
     font-size: 50px !important;
     text-align: center;
+    font-family: 'Merriweather', sans-serif;
+    font-style: italic;
+}
+h5{
+    font-family: "Poppins", sans-serif;
+    color: var(--beige) !important;
+    font-weight: 700 !important;
 }
 .txt-home{
     color: var(--marronOscuro);
@@ -29,13 +40,10 @@ h3{
 }
 .btn-home:hover{
     background-color: var(--beige) !important;
-    border: none !important;
-    font-family: "Poppins", sans-serif !important;
     color: var(--marronOscuro) !important;
-    width: 320px;
-    height: 60px;
 }
 
 .home-buttons{
-    margin-top: 15rem;
+    margin-top: 14rem;
+    padding-bottom: 3rem;
 }

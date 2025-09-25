@@ -68,7 +68,7 @@ const ModalLogin = ({ show, handleClose }) => {
     return (
         <>
             <Modal show={show} onHide={handleClose} centered>
-                <Modal.Header closeButton className='modal-style'>
+                <Modal.Header className='modal-style'>
                     <Modal.Title>Ingresá con tu usuario</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className='modal-style'>

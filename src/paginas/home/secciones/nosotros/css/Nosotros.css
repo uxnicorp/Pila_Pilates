@@ -1,0 +1,30 @@
+.txt-parrafo-nosotros{
+font-family: 'Poppins', serif;
+color: var(--marronOscuro);
+}
+
+.btn-nosotros{
+    width: 16rem;
+    height: 3rem;
+}
+.divider{
+    width: 4px;
+    background-color: var(--beige);
+    border-radius: 4px;
+}
+
+.img-profes{
+    width: 112px;
+    height: 112px;
+    object-fit: cover;
+}
+
+.seccion-nosotros{
+    background-color: var(--blanco);
+}
+
+.txt-profes{
+    font-family: 'Merriweather', sans-serif;
+    color: var(--marronOscuro);
+    font-size: smaller;
+}
