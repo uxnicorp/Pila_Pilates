@@ -70,6 +70,7 @@ export const PanelAdmin = () => {
           servicio: servicio,
           cupo_maximo: 5,
           profesional: {
+            id: profesionalId._id,
             nombre: profesionalId.nombre,
             apellido: profesionalId.apellido
           }
@@ -112,9 +113,12 @@ export const PanelAdmin = () => {
   }, [profesionalId, paso]);
 
   return (
-    <Container fluid>
-
+    <div>
       <NavBar user={user} />
+
+       <Container fluid>
+
+      
 
       {/* Header con Pasos */}
       <Row className="mb-4">
@@ -306,5 +310,7 @@ export const PanelAdmin = () => {
         </Col>
       </Row>
     </Container>
+    </div>
+   
   );
 }
