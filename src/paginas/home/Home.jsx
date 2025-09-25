@@ -20,14 +20,14 @@ const Home = () => {
 
     return (
         <>
-            <section className="home-section d-flex align-ites-center">
+            <section className="home-section d-flex">
                 <div className="container container-home">
                     <div className="row justify-content-end">
                         <div className="col-12 col-md-6 col-lg-5">
                             <p className="txt-home mb-2 fs-4">
                                 Más que un entrenamiento,
                             </p>
-                            <h3 className="mb-4 fst-italic fw-bolder fs-1">
+                            <h3 className="mb-4 fst-italic fw-bolder">
                                 un momento para reconectar con vos mismo
                             </h3>
 

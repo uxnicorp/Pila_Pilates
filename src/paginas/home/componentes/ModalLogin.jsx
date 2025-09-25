@@ -30,7 +30,13 @@ const ModalLogin = ({ show, handleClose }) => {
                 title: '¡Error!',
                 text: 'Todos los campos son obligatorios.',
                 icon: 'error',
-                confirmButtonText: 'Aceptar'
+                confirmButtonText: 'Aceptar',
+                customClass: {
+                    popup: 'mi-popup',
+                    title: 'mi-titulo',
+                    confirmButton: 'mi-boton',
+                    htmlContainer: 'mi-texto'
+                }
             });
             return;
         }
@@ -41,7 +47,14 @@ const ModalLogin = ({ show, handleClose }) => {
                 icon: 'error',
                 title: 'Email inválido',
                 text: 'Por favor, ingrese un email válido.',
-                confirmButtonText: 'Aceptar'
+                confirmButtonText: 'Aceptar',
+                iconColor: 'var(--blanco)',
+                customClass: {
+                    popup: 'mi-popup',
+                    title: 'mi-titulo',
+                    confirmButton: 'mi-boton',
+                    htmlContainer: 'mi-texto'
+                }
             });
             return;
         }
@@ -55,10 +68,10 @@ const ModalLogin = ({ show, handleClose }) => {
     return (
         <>
             <Modal show={show} onHide={handleClose} centered>
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className='modal-style'>
                     <Modal.Title>Ingresá con tu usuario</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className='modal-style'>
                     <Form>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Correo electrónico</Form.Label>
@@ -82,11 +95,11 @@ const ModalLogin = ({ show, handleClose }) => {
                         </Form.Group>
                     </Form>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                <Modal.Footer className='modal-style'>
+                    <Button className='btn-modal btn-modal-close' onClick={handleClose}>
                         Cerrar
                     </Button>
-                    <Button variant="primary" onClick={onSubmit}>
+                    <Button className='btn-modal btn-modal-send' onClick={onSubmit}>
                         Ingresar
                     </Button>
                 </Modal.Footer>

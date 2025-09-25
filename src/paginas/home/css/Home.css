@@ -12,6 +12,8 @@ background-image: url("../../../assets/fondo-home.PNG");
 }
 h3{
     color: var(--blanco)!important;
+    font-size: 50px !important;
+    text-align: center;
 }
 .txt-home{
     color: var(--marronOscuro);
@@ -25,6 +27,15 @@ h3{
     width: 320px;
     height: 60px;
 }
+.btn-home:hover{
+    background-color: var(--beige) !important;
+    border: none !important;
+    font-family: "Poppins", sans-serif !important;
+    color: var(--marronOscuro) !important;
+    width: 320px;
+    height: 60px;
+}
+
 .home-buttons{
     margin-top: 15rem;
 }
