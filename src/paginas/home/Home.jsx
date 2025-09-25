@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import ModalLogin from './componentes/ModalLogin';
 import ModalRegistro from './componentes/ModalRegister';
 import "./css/Home.css";
+import Nosotros from './secciones/nosotros/Nosotros';
 
 const Home = () => {
 
@@ -27,7 +28,7 @@ const Home = () => {
                             <p className="txt-home mb-2 fs-4">
                                 Más que un entrenamiento,
                             </p>
-                            <h3 className="mb-4 fst-italic fw-bolder">
+                            <h3 className="mb-4 fw-bolder">
                                 un momento para reconectar con vos mismo
                             </h3>
 
@@ -41,6 +42,7 @@ const Home = () => {
                 <ModalLogin show={show} handleClose={handleClose} />
                 <ModalRegistro show={showR} handleClose={handleCloseReg} />
             </section>
+            <Nosotros/>
         </>
     )
 }
