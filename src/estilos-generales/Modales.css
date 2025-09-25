@@ -1,0 +1,73 @@
+.modal-style{
+    background-color: var(--marronOscuro);
+    font-family: "Poppins", sans-serif;
+    color: var(--blanco);
+}
+
+.btn-modal-close{
+    background-color: var(--blanco);
+    color: var(--marronOscuro);
+    border: none;
+}
+
+.btn-modal-close:hover{
+    background-color: var(--marronClaro);
+    color: var(--blanco);
+}
+
+.btn-modal-send{
+    background-color: var(--beige);
+    color: var(--marronOscuro);
+    font-weight: 500;
+    border: none;
+}
+.btn-modal-send:hover{
+    background-color: var(--marronClaro);
+    color: var(--blanco);
+    font-weight: 500;
+}
+
+.btn-modal:active,
+.btn-modal:focus:active {
+  background-color: var(--marronClaro) !important;
+  color: var(--blanco) !important;
+  box-shadow: 0 0 0 0.2rem rgba(0,0,0,.2);
+}
+
+.mi-popup {
+  border-radius: 20px;
+  background-color: var(--beige);
+  padding: 2rem;
+}
+
+.mi-titulo {
+  font-family: 'Merriweather', sans-serif;
+  font-size: 1.8rem;
+  color: var(--marronOscuro);
+}
+
+.mi-boton {
+  background-color: var(--marronOscuro);
+  border-radius: 50px !important;
+  padding: 0.6rem 2rem !important;
+  font-weight: bold;
+}
+
+.mi-boton:hover {
+  background-color: var(--blanco);
+  border-radius: 50px !important;
+  padding: 0.6rem 2rem !important;
+  font-weight: bold;
+}
+
+.mi-popup .swal2-html-container {
+  color: var(--blanco) !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+.mi-popup .swal2-icon.swal2-error{ 
+    border-color: var(--blanco) !important;
+}
+.mi-popup .swal2-x-mark-line-left,
+.mi-popup .swal2-x-mark-line-right{ 
+    background-color: var(--blanco) !important; 
+}

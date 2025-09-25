@@ -97,11 +97,11 @@ const ModalRegistro = ({ show, handleClose }) => {
   };
 
   return (
-    <Modal show={show} onHide={handleClose}>
-      <Modal.Header closeButton>
+    <Modal show={show} onHide={handleClose} centered>
+      <Modal.Header closeButton className='modal-style'>
         <Modal.Title>Registrate</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className='modal-style'>
         <Form>
           <Form.Group className="mb-3">
             <Form.Label>Nombre</Form.Label>
@@ -159,11 +159,11 @@ const ModalRegistro = ({ show, handleClose }) => {
           </Form.Group>
         </Form>
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
+      <Modal.Footer className='modal-style'>
+        <Button className='btn-modal btn-modal-close' onClick={handleClose}>
           Cerrar
         </Button>
-        <Button variant="primary" onClick={onSubmit}>
+        <Button className='btn-modal btn-modal-send' onClick={onSubmit}>
           Registrarme
         </Button>
       </Modal.Footer>
