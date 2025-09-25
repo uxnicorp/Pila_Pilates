@@ -3,7 +3,11 @@ import Button from 'react-bootstrap/Button';
 import ModalLogin from './componentes/ModalLogin';
 import ModalRegistro from './componentes/ModalRegister';
 import "./css/Home.css";
+<<<<<<< HEAD
 import Nosotros from './secciones/nosotros/Nosotros';
+=======
+import { NavBar } from '../../Componentes/Navbar';
+>>>>>>> featured-navbar
 
 const Home = () => {
 
@@ -21,7 +25,15 @@ const Home = () => {
 
     return (
         <>
+<<<<<<< HEAD
             <section className="home-section d-flex">
+=======
+            <section className="home-section d-flex align-ites-center">
+                {/* NavBar posicionado absolutamente */}
+    <div className="position-absolute top-0 end-0 m-3" style={{ zIndex: 1050 }}>
+        <NavBar/>
+    </div>
+>>>>>>> featured-navbar
                 <div className="container container-home">
                     <div className="row justify-content-end">
                         <div className="col-12 col-md-6 col-lg-5">
