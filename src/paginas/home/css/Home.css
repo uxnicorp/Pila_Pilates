@@ -22,7 +22,7 @@ h3{
     font-style: italic;
 }
 h5{
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif!important;
     color: var(--beige) !important;
     font-weight: 700 !important;
 }

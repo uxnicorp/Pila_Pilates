@@ -1,0 +1,15 @@
+.img-clases{
+    max-height: 500px;
+    object-fit: cover;
+    width: 50%;
+}
+
+.txt-info-clases{
+    font-family: "Merriweather", sans-serif;
+    color: var(--marronOscuro);
+}
+
+.txt-horarios-clases{
+    font-family: "Poppins", sans-serif !important;
+    color: var(--marronClaro);
+}
