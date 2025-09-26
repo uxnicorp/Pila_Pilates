@@ -1,0 +1,27 @@
+.container-footer{
+  background-color: var(--marronClaro) !important;
+}
+
+.brand {
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+}
+
+.brand-pila {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+}
+
+.brand-pilates {
+  font-family: "Merriweather", sans-serif;
+  font-weight: 300;
+}
+
+.social-info{
+    color: var(--beige);
+    font-family: "Poppins", sans-serif;
+}
+
+.footer-dir{
+    font-family: "Merriweather", sans-serif;
+}
