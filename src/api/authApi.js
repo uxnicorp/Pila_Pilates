@@ -1,10 +1,10 @@
 import axios from "axios";
 //http://localhost:4008/ //test local
 //linck server en render
-//https://comunidad-ahorro-backend-2.onrender.com/
+//https://pila-pilates-backend.onrender.com
 
 const authApi=axios.create({
-    baseURL: "http://localhost:4008/",
+    baseURL: "https://pila-pilates-backend.onrender.com",
 });
 
 
