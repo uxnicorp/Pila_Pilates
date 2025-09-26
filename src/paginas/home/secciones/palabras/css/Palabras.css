@@ -1,0 +1,59 @@
+.contrastes{
+  background: var(--beige);
+}
+
+/* Bloques de texto (3 líneas grandes) */
+.contrastes .lista{
+  color: var(--blanco);
+  line-height: 1.1;
+  font-weight: 600;          /* ajustá según tu h5/h2 */
+  letter-spacing: .5px;
+  font-size: clamp(1.8rem, 2.8vw + 1rem, 3.2rem);
+  display: grid;
+  gap: .25rem;
+}
+
+/* Signos */
+.contrastes .signo{
+  flex: 0 0 auto;
+  display: inline-block;
+}
+
+/* “-” como rectángulo */
+.contrastes .signo.menos{
+  width: 56px;
+  height: 18px;
+  background: var(--marronOscuro);
+  border-radius: 2px;
+  margin-top: .4rem;         /* alinear verticalmente con la 1ª línea */
+}
+
+/* “+” construido con 2 barras */
+.contrastes .signo.mas{
+  position: relative;
+  width: 64px;               /* tamaño del plus */
+  height: 64px;
+  margin-top: .2rem;
+}
+.contrastes .signo.mas::before,
+.contrastes .signo.mas::after{
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 64px;
+  height: 14px;
+  background: var(--marronOscuro);
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+}
+.contrastes .signo.mas::after{
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* Responsive: un poco más compacta en móviles */
+@media (max-width: 576px){
+  .contrastes .signo.menos{ width: 44px; height: 14px; }
+  .contrastes .signo.mas{ width: 52px; height: 52px; }
+  .contrastes .signo.mas::before,
+  .contrastes .signo.mas::after{ width: 52px; height: 12px; }
+}
