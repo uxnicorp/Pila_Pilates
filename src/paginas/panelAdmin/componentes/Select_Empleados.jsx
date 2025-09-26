@@ -1,26 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Form } from 'react-bootstrap';
-import axios from 'axios'; // Asegúrate de tener axios instalado
 import { cargarEmpleados } from '../helper/cargarEmpleados';
 
 const SelectEmpleado = ({ onProfesionalSelected, value, navigate }) => {
-  // Estado para almacenar la lista de empleados
   const [empleados, setEmpleados] = useState([]);
-  // Estado para manejar la carga
   const [cargando, setCargando] = useState(true);
-  // Estado para manejar errores
   const [error, setError] = useState(null);
 
-  // useEffect para hacer la petición al montar el componente
- useEffect(() => {
+  useEffect(() => {
     const obtenerEmpleados = async () => {
       try {
         setCargando(true);
         setError(null);
-        // Usamos el helper personalizado
         await cargarEmpleados(setEmpleados, navigate);
       } catch (error) {
-        // El helper ya mostró la alerta, pero podemos capturar el error localmente
         setError('No se pudieron cargar los profesionales');
         console.error('Error en componente:', error);
       } finally {
@@ -29,16 +22,34 @@ const SelectEmpleado = ({ onProfesionalSelected, value, navigate }) => {
     };
 
     obtenerEmpleados();
-  }, [navigate]); // navigate como dependencia
+  }, [navigate]);
 
-  // Manejar cambio de selección
   const handleChange = (e) => {
     const selectedId = e.target.value;
-    // Encontrar el empleado completo basado en el ID seleccionado
     const empleadoSeleccionado = empleados.find(emp => emp._id === selectedId);
-    // Llamar a la función callback con el objeto completo del empleado
     onProfesionalSelected(empleadoSeleccionado);
   };
+
+  // CORRECCIÓN CLAVE: Extraer el ID del objeto empleado
+  const getSelectedValue = () => {
+    // Si value es undefined o null, retornar string vacío
+    if (!value) return '';
+    
+    // Si value es un string (ID), usarlo directamente
+    if (typeof value === 'string') {
+      return value;
+    }
+    
+    // Si value es un objeto, extraer el _id
+    if (value._id) {
+      return value._id;
+    }
+    
+    // Si no coincide con nada, string vacío
+    return '';
+  };
+
+  const selectedValue = getSelectedValue();
 
   if (cargando) {
     return (
@@ -59,7 +70,7 @@ const SelectEmpleado = ({ onProfesionalSelected, value, navigate }) => {
   return (
     <Form.Select 
       onChange={handleChange}
-      value={value || ''}
+      value={selectedValue} // Usar el ID extraído
       required
     >
       <option value="">Seleccionar profesional</option>

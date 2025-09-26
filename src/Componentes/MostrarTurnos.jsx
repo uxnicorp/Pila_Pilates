@@ -105,7 +105,7 @@ const MostrarTurnos = ({ tipoUsuario = null, userInfo = null }) => {
 
   // Botón de modificar turno (todavía no implementado, solo muestra un alert)
   const modificarTurno = (turnoId) => {
-    alert(`Modificar turno ${turnoId} - Funcionalidad por implementar papilo`);
+    alert(`Modificar turno ${turnoId} - Funcionalidad por implementar`);
   };
 
   // El cliente puede cancelar su reserva si faltan más de 8 horas

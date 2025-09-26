@@ -31,8 +31,8 @@ const SelectorHoras = ({ horariosSeleccionados, setHorariosSeleccionados }) => {
 
   return (
        <Card>
-      <Card.Header>
-        <h5>🕐 Seleccionar Dos Horarios</h5>
+      <Card.Header >
+        <h5> Seleccionar Dos Horarios</h5>
         <Form.Text className="text-muted">
           Elige dos horarios diferentes. Cada fecha tendrá turnos en ambos horarios.
           {horariosSeleccionados.length === 2 && (

@@ -185,11 +185,11 @@ const Calendario = ({
 
   return (
     <Card>
-      <Card.Header className={modoSeleccion ? "bg-primary text-white" : "bg-info text-white"}>
+      <Card.Header className={modoSeleccion ? "bg_head_calendar text-white" : "bg_head_calendar text-white"}>
         <Row className="align-items-center">
           <Col>
             <h5 className="mb-0">
-              {modoSeleccion ? '📅 Seleccionar Fechas' : '📅 Turnos Existentes'}
+              {modoSeleccion ? ' Seleccionar Fechas' : ' Turnos Existentes'}
             </h5>
             <Form.Text className="text-light">
               {modoSeleccion 
@@ -208,8 +208,8 @@ const Calendario = ({
         </Row>
       </Card.Header>
 
-      <Card.Body>
-        <div className="calendar-container">
+      <Card.Body className='bg_calendar'>
+        <div className="calendar-container ">
           <FullCalendar
             ref={calendarRef}
             plugins={[dayGridPlugin, interactionPlugin]}
@@ -250,9 +250,7 @@ const Calendario = ({
           <div className="leyenda">
             <strong>Leyenda:</strong>
             <span className="badge bg-success me-2 ms-2">Pilates</span>
-            <span className="badge bg-info me-2">Yoga</span>
-            <span className="badge bg-warning me-2">Gimnasia</span>
-            <span className="badge bg-secondary me-2">Otros</span>
+         
             
             {modoSeleccion && (
               <>

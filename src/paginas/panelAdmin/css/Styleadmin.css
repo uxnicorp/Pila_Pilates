@@ -1,0 +1,23 @@
+body {
+    min-height: 100vh;
+    background:#fff8ef; /*1 i 3 de la pal 1*/
+    overflow-x: hidden;
+    
+  }
+
+.bg_head_calendar{
+    background-color:#3e2214
+}
+
+.text_m{
+    color: #3e2214;
+}
+
+.bg_calendar{
+    background: #a1835a;
+}
+
+.color_buton{
+    background: #fff8ef;
+    color: #3e2214;
+}
