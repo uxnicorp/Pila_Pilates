@@ -7,6 +7,7 @@ import { NavBar } from '../../Componentes/Navbar';
 import Nosotros from './secciones/nosotros/Nosotros';
 import Footer from '../../Componentes/Footer';
 import Clases from './secciones/clases/Clases';
+import { Palabras } from './secciones/palabras/Palabras';
 
 const Home = () => {
 
@@ -50,6 +51,7 @@ const Home = () => {
                 <ModalRegistro show={showR} handleClose={handleCloseReg} />
             </section>
             <Nosotros/>
+            <Palabras/>
             <Clases/>
             <Footer/>
         </>
