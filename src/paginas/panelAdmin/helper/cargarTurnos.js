@@ -3,7 +3,7 @@ import authApi from '../../../api/authApi';
 
 export const obtenerTurnosParaCalendario = async () => {
     try {
-        const resp = await authApi.get('/admin/turnos');
+        const resp = await authApi.get('/turnos/turnosR');
         
         if (resp.data.ok) {
             return resp.data.turnos;
