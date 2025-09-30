@@ -8,6 +8,7 @@ import Nosotros from './secciones/nosotros/Nosotros';
 import Footer from '../../Componentes/Footer';
 import Clases from './secciones/clases/Clases';
 import { Palabras } from './secciones/palabras/Palabras';
+import Novedades from './secciones/novedades/Novedades';
 
 const Home = () => {
 
@@ -53,6 +54,7 @@ const Home = () => {
             <Nosotros/>
             <Palabras/>
             <Clases/>
+            <Novedades/>
             <Footer/>
         </>
     )

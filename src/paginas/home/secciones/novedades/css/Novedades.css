@@ -1,0 +1,89 @@
+.eventos-section {
+    background: var(--beige) !important;
+}
+
+.title-novedades {
+    color: var(--blanco) !important;
+}
+
+@media (min-width: 992px) {
+    .event-title {
+        text-align: left;
+    }
+}
+
+.txt-parrafo-evento {
+    font-family: 'Poppins', serif !important;
+    color: var(--blanco) !important;
+    text-align: center !important;
+}
+
+
+/* imágenes grandes */
+.event-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Tarjetas */
+.event-card {
+    background: var(--marronOscuro);
+}
+
+.event-card h5 {
+    color: var(--blanco);
+    margin: 0;
+}
+
+/* thumbs dobles a la izquierda */
+.event-card-thumbs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem;
+    width: 150px;
+}
+
+.event-card-thumbs img {
+    width: 100%;
+    height: 85px;
+    object-fit: cover;
+    border-radius: .75rem;
+}
+
+
+
+/* separador + */
+.plus-sep {
+    width: 58px;
+    height: 58px;
+    background: rgba(0, 0, 0, .25);
+    border-radius: 16px;
+    font-size: 2rem;
+}
+
+.card-promo {
+    background-color: #3a1f15;
+    /* mismo marrón de tu mock */
+    color: #fff;
+}
+
+.card-promo .thumb {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.plus-inline {
+    font-size: 2rem;
+    color: #3a1f15;
+}
+
+
+.btn-evento-inferior{
+    background-color: var(--beige)!important;
+    color: var(--marronClaro)!important;
+    font-weight: 900 !important;
+    font-family: "Merriweather", sans-serif !important;
+}
