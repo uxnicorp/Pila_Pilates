@@ -7,7 +7,7 @@ const Clases = () => {
     return (
         <section className="py-5">
             <div className="container">
-                <h2 className="text-center mb-5 fw-bold">Conocé nuestras clases</h2>
+                <h2 className="text-center mb-5">Conocé nuestras clases</h2>
                 <div className="row g-5 align-items-start">
                     {/* PILATES REFORMER */}
                     <div className="col-12 col-lg-6">
