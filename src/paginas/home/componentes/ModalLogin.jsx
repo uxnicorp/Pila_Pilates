@@ -71,6 +71,7 @@ const ModalLogin = ({ show, handleClose }) => {
                 <Modal.Header className='modal-style'>
                     <Modal.Title>Ingresá con tu usuario</Modal.Title>
                 </Modal.Header>
+                
                 <Modal.Body className='modal-style'>
                     <Form>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">

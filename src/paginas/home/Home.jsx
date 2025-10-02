@@ -3,12 +3,13 @@ import Button from 'react-bootstrap/Button';
 import ModalLogin from './componentes/ModalLogin';
 import ModalRegistro from './componentes/ModalRegister';
 import "./css/Home.css";
-import { NavBar } from '../../Componentes/Navbar';
+
 import Nosotros from './secciones/nosotros/Nosotros';
 import Footer from '../../Componentes/Footer';
 import Clases from './secciones/clases/Clases';
 import { Palabras } from './secciones/palabras/Palabras';
 import Novedades from './secciones/novedades/Novedades';
+import NavBarHome from './componentes/NavbarHome';
 
 const Home = () => {
 
@@ -28,9 +29,9 @@ const Home = () => {
         <>
             <section className="home-section d-flex align-ites-center">
                 {/* NavBar posicionado absolutamente */}
-    <div className="position-absolute top-0 end-0 m-3" style={{ zIndex: 1050 }}>
-        <NavBar/>
-    </div>
+                <div className="position-absolute top-0 end-0 m-3" style={{ zIndex: 1050 }}>
+                    <NavBarHome />
+                </div>
                 <div className="container container-home">
                     <div className="row justify-content-end">
                         <div className="col-12 col-md-6 col-lg-5">
@@ -51,11 +52,26 @@ const Home = () => {
                 <ModalLogin show={show} handleClose={handleClose} />
                 <ModalRegistro show={showR} handleClose={handleCloseReg} />
             </section>
-            <Nosotros/>
-            <Palabras/>
-            <Clases/>
-            <Novedades/>
-            <Footer/>
+            <div id='nosotros'>
+                <Nosotros />
+            </div>
+            <div id='palabras'>
+                <Palabras />
+            </div>
+            <div id='clases'>
+                <Clases />
+            </div>
+            <div id='novedades'>
+                <Novedades />
+            </div>
+            <div id='foother'>
+                <Footer />
+            </div>
+
+
+
+
+
         </>
     )
 }

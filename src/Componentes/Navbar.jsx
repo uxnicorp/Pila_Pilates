@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-export const NavBar = ({ user = null }) => { // user es opcional con valor por defecto
+export const NavBar = ({ user = null }) => {
     const navigate = useNavigate();
-    const [isExpanded, setIsExpanded] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(true); // INICIA EXPANDIDO
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-    const [showButtons, setShowButtons] = useState(false);
+    const [showButtons, setShowButtons] = useState(true); // INICIA MOSTRANDO BOTONES
 
     const toggleExpansion = () => {
-        if (!isExpanded) {
-            setIsExpanded(true);
-            setTimeout(() => {
-                setShowButtons(true);
-            }, 200);
-        } else {
+        if (isExpanded) {
+            // Si está expandido, primero ocultar botones y luego contraer
             setShowButtons(false);
             setTimeout(() => {
                 setIsExpanded(false);
             }, 150);
+        } else {
+            // Si está contraído, primero expandir y luego mostrar botones
+            setIsExpanded(true);
+            setTimeout(() => {
+                setShowButtons(true);
+            }, 200);
         }
     };
 
@@ -32,13 +34,6 @@ export const NavBar = ({ user = null }) => { // user es opcional con valor por d
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
-
-    // Asegurarnos de que los botones se ocultan si el navbar se contrae
-    useEffect(() => {
-        if (!isExpanded) {
-            setShowButtons(false);
-        }
-    }, [isExpanded]);
 
     // Funciones para cuando NO hay usuario (página de inicio)
     const ir_Login = () => {
@@ -89,9 +84,8 @@ export const NavBar = ({ user = null }) => { // user es opcional con valor por d
         });
     }
 
-    // Función para obtener las opciones del menú - MODIFICADA PARA USUARIO NULL
+    // Función para obtener las opciones del menú
     const getMenuOptions = () => {
-        // Si no hay usuario, mostrar opciones para visitantes
         if (!user) {
             return [
                 { text: 'Iniciar Sesión', icon: 'bi-box-arrow-in-right', action: ir_Login },
@@ -102,7 +96,6 @@ export const NavBar = ({ user = null }) => { // user es opcional con valor por d
             ];
         }
 
-        // Si hay usuario, mostrar opciones según el rol
         switch (user.rol) {
             case 'admin':
                 return [
@@ -128,7 +121,6 @@ export const NavBar = ({ user = null }) => { // user es opcional con valor por d
 
     const menuOptions = getMenuOptions();
 
-    // ESTILOS MODIFICADOS PARA ANIMACIÓN ESCALONADA
     const navbarStyle = {
         position: 'relative',
         width: isMobile ? '100%' : 'auto',
@@ -144,13 +136,11 @@ export const NavBar = ({ user = null }) => { // user es opcional con valor por d
         justifyContent: !isMobile ? 'flex-end' : 'center',
         marginBottom: '20px',
         marginTop: '20px',
-        // Ajuste dinámico basado en la cantidad de opciones
         minWidth: !isMobile && isExpanded ? `${(menuOptions.length * 160) + 200}px` : !isMobile ? '180px' : 'auto',
         height: !isMobile ? '50px' : 'auto',
         overflow: 'hidden'
     };
 
-    // CONTENEDOR DE OPCIONES - SOLO ANIMACIÓN DE EXPANSIÓN
     const optionsContainerStyle = {
         display: 'flex',
         alignItems: 'center',
@@ -168,8 +158,7 @@ export const NavBar = ({ user = null }) => { // user es opcional con valor por d
         gap: isMobile ? '8px' : '5px'
     };
 
-    // BOTONES CON ANIMACIÓN INDIVIDUAL
-    const optionButtonStyle = {
+    const navLinkStyle = {
         padding: !isMobile ? '6px 12px' : '10px 15px',
         fontSize: !isMobile ? '0.8rem' : '0.9rem',
         border: 'none',
@@ -182,7 +171,11 @@ export const NavBar = ({ user = null }) => { // user es opcional con valor por d
         minWidth: isMobile ? '200px' : 'auto',
         height: !isMobile ? '32px' : 'auto',
         transform: showButtons ? 'translateX(0) scale(1)' : !isMobile ? 'translateX(-10px) scale(0.8)' : 'translateY(-10px) scale(0.8)',
-        opacity: showButtons ? 1 : 0
+        opacity: showButtons ? 1 : 0,
+        textDecoration: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
     };
 
     return (
@@ -190,27 +183,25 @@ export const NavBar = ({ user = null }) => { // user es opcional con valor por d
             <div className="row">
                 <div className="col-12" style={{ display: 'flex', justifyContent: isMobile ? 'center' : 'flex-end' }}>
                     <div style={navbarStyle}>
-                        {/* DESKTOP: Opciones que aparecen después de la expansión */}
+                        {/* DESKTOP: Opciones con NavLinks */}
                         {!isMobile && (
-                            <div style={{
+                            <Nav style={{
                                 ...optionsContainerStyle,
                                 order: 1
                             }}>
                                 {menuOptions.map((option, index) => (
-                                    <button
+                                    <Nav.Link
                                         key={index}
                                         onClick={() => {
                                             option.action();
-                                            // No cerrar para opciones de navegación general
                                             if (user && option.text !== 'Salir') {
                                                 toggleExpansion();
                                             } else if (!user) {
-                                                // Para visitantes, cerrar después de clickear
                                                 toggleExpansion();
                                             }
                                         }}
                                         style={{
-                                            ...optionButtonStyle,
+                                            ...navLinkStyle,
                                             backgroundColor: option.variant === 'danger' ? '#dc3545' : '#a1835a',
                                             transitionDelay: `${index * 0.05 + 0.1}s`
                                         }}
@@ -227,9 +218,9 @@ export const NavBar = ({ user = null }) => { // user es opcional con valor por d
                                     >
                                         <i className={`bi ${option.icon} me-2`}></i>
                                         {option.text}
-                                    </button>
+                                    </Nav.Link>
                                 ))}
-                            </div>
+                            </Nav>
                         )}
 
                         {/* Header principal */}
@@ -283,14 +274,14 @@ export const NavBar = ({ user = null }) => { // user es opcional con valor por d
                             </button>
                         </div>
 
-                        {/* MÓVIL: Opciones que aparecen después de la expansión */}
+                        {/* MÓVIL: Opciones con NavLinks */}
                         {isMobile && (
-                            <div style={{
+                            <Nav style={{
                                 ...optionsContainerStyle,
                                 order: 2
                             }}>
                                 {menuOptions.map((option, index) => (
-                                    <button
+                                    <Nav.Link
                                         key={index}
                                         onClick={() => {
                                             option.action();
@@ -301,7 +292,7 @@ export const NavBar = ({ user = null }) => { // user es opcional con valor por d
                                             }
                                         }}
                                         style={{
-                                            ...optionButtonStyle,
+                                            ...navLinkStyle,
                                             backgroundColor: option.variant === 'danger' ? '#dc3545' : '#a1835a',
                                             transitionDelay: `${index * 0.05 + 0.1}s`
                                         }}
@@ -318,9 +309,9 @@ export const NavBar = ({ user = null }) => { // user es opcional con valor por d
                                     >
                                         <i className={`bi ${option.icon} me-2`}></i>
                                         {option.text}
-                                    </button>
+                                    </Nav.Link>
                                 ))}
-                            </div>
+                            </Nav>
                         )}
                     </div>
                 </div>

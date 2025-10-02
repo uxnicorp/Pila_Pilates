@@ -40,12 +40,35 @@ h5 {
     font-weight: 700 !important;
 }
 
+h6 {
+    color: var(--beige) !important;
+    font-size: 25px !important;
+    text-align: center;
+    font-family: 'Merriweather', sans-serif;
+    font-style: italic;
+}
+/************************/
 .txt-home {
     color: var(--marronOscuro);
     font-size: 1.1rem;
     font-family: "Poppins", sans-serif;
 }
 
+.txt-navbar-tit {
+    color: var(--blanco);
+    font-size: 1.1rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.bg-forzado {
+  background-color:#2f1d0f !important;
+}
+
+.text-navbar-options{
+    font-family: 'Merriweather', sans-serif;
+    font-style: italic;
+}
+/************************/
 .btn-home {
     background-color: var(--marronClaro) !important;
     border: none !important;
