@@ -1,0 +1,536 @@
+/* ====== FUENTES ====== */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700;800&family=Poppins:wght@600;700&display=swap');
+
+/* ====== FONDO GLOBAL ====== */
+.panel-empleado-page {
+  background-color: #a1835a; 
+}
+
+/* ====== HERO con imagen de fondo ====== */
+.empleado-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: block;
+  background-image: url('/pilapilates-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.empleado-hero__overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.35) 35%,
+    rgba(255, 255, 255, 0.10) 100%
+  );
+}
+
+/* ====== NavBar en overlay ====== */
+.empleado-hero__navbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.empleado-hero__navbar .navbar,
+.empleado-hero__navbar .navbar.bg-light,
+.empleado-hero__navbar .navbar-light {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ====== TEXTOS del hero ====== */
+.empleado-hero__copy {
+  position: absolute;
+  top: 170px;
+  left: 100px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 750px;
+  pointer-events: none;
+  transform: translateY(-10%);
+}
+
+/* Frase principal */
+.frase-principal {
+  margin: 0;
+  line-height: 1.25;
+  font-weight: 700;
+  font-size: clamp(22px, 3vw, 40px);
+  color: #3e2214;
+  text-wrap: balance;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.25);
+  font-family: "Merriweather", serif;
+}
+
+/* "Somos parte" */
+.frase-secundaria {
+  margin-top: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: clamp(18px, 2vw, 24px);
+  color: #a1835a;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+/* ====== Título del panel ====== */
+.panel-empleado-title {
+  font-family: "Merriweather", serif;
+  font-weight: 800;
+}
+
+/* ====== Recuadros ====== */
+.panel-empleado-page .card:not([class*="bg-"]),
+.panel-empleado-page .card:not([class*="bg-"]) .card-body,
+.panel-empleado-page .card:not([class*="bg-"]) .card-header,
+.panel-empleado-page .card:not([class*="bg-"]) .card-footer,
+.panel-empleado-page .card-header.bg-light,
+.panel-empleado-page .modal-content,
+.panel-empleado-page .list-group-item,
+.panel-empleado-page .dropdown-menu,
+.panel-empleado-page .accordion-item,
+.panel-empleado-page .accordion-body,
+.panel-empleado-page .table,
+.panel-empleado-page .table th,
+.panel-empleado-page .table td,
+.panel-empleado-page .alert:not(.alert-danger):not(.alert-success):not(.alert-warning):not(.alert-info):not(.alert-primary):not(.alert-secondary):not(.alert-dark),
+.panel-empleado-page .bg-light,
+.panel-empleado-page .bg-white,
+.panel-empleado-page .form-control,
+.panel-empleado-page .form-select {
+  background-color: #fff8ef !important;
+}
+
+/* Card del encabezado “Panel del Profesional” */
+.panel-empleado-page .bg-gradient-info {
+  background: #fff8ef !important;
+}
+.panel-empleado-page .bg-gradient-info.text-white,
+.panel-empleado-page .bg-gradient-info .text-white {
+  color: #3e2214 !important; 
+}
+
+.panel-empleado-page .accordion-button {
+  background-color: #fff8ef !important;
+}
+.panel-empleado-page .accordion-button:not(.collapsed) {
+  background-color: #fff8ef !important;
+  box-shadow: none !important;
+}
+
+.panel-empleado-page .alert-info {
+  background-color: #fff8ef !important;
+  color: inherit; 
+  border-color: rgba(0,0,0,0.08);
+}
+
+/* ====== Métricas ====== */
+.panel-empleado-page .text-primary,
+.panel-empleado-page .text-success,
+.panel-empleado-page .text-warning,
+.panel-empleado-page .text-info {
+  color: #3e2214 !important; 
+}
+
+.panel-empleado-page .border-primary,
+.panel-empleado-page .border-success,
+.panel-empleado-page .border-warning,
+.panel-empleado-page .border-info {
+  border-color: #3e2214 !important; 
+}
+
+/* ====== Botones “link” en encabezado del panel ====== */
+.panel-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Aplica a los botones de Bootstrap como a cualquier boton del componente de notificaciones */
+.panel-actions .btn,
+.panel-actions button {
+  background: transparent !important;
+  border: none !important;           
+  color: #3e2214 !important;         
+  font-weight: 600;
+  padding: 4px 2px;
+  border-radius: 0;
+  box-shadow: none !important;
+  position: relative;
+  line-height: 1.2;
+}
+
+/* subrayado tipo “accent bar” */
+.panel-actions .btn::after,
+.panel-actions button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 2px;
+  background-color: #3e2214;
+  opacity: 0.6;
+  transform-origin: left;
+  transform: scaleX(1);
+  transition: opacity .15s ease;
+}
+
+.panel-actions .btn:hover::after,
+.panel-actions button:hover::after,
+.panel-actions .btn:focus::after,
+.panel-actions button:focus::after {
+  opacity: 1;
+}
+
+/* ícono sobrio */
+.panel-actions .btn-ico {
+  margin-right: .45rem;
+  font-size: .95em;
+  opacity: .6;
+}
+
+/* Estados */
+.panel-actions .btn:disabled,
+.panel-actions button:disabled {
+  opacity: .45 !important;
+}
+.panel-actions .btn:disabled::after,
+.panel-actions button:disabled::after {
+  opacity: .25;
+}
+
+/* Limpieza de estilos Bootstrap que podrían colarse */
+.panel-actions .btn-outline-light,
+.panel-actions .btn-light {
+  border-color: transparent !important;
+  background: transparent !important;
+  color: #3e2214 !important;
+}
+
+.panel-actions .btn-ico {
+  margin-right: .45rem;
+  opacity: .7;
+}
+.panel-actions .panel-linkbtn:hover .btn-ico,
+.panel-actions .panel-linkbtn:focus .btn-ico {
+  opacity: 1;
+}
+
+/* ====== Acciones uniformes ====== */
+.panel-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.panel-actions .panel-linkbtn,
+.panel-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  background: transparent !important;
+  border: none !important;
+  color: #3e2214 !important;
+  font-weight: 600;
+  font-size: 16px;            
+  line-height: 1.6;           
+  padding: 6px 2px;           
+  border-radius: 0;
+  box-shadow: none !important;
+  position: relative;
+}
+
+/* Subrayado */
+.panel-actions .panel-linkbtn::after,
+.panel-actions .btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background-color: #3e2214;
+  opacity: .6;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: opacity .15s ease;
+}
+
+.panel-actions .panel-linkbtn:hover::after,
+.panel-actions .btn:hover::after,
+.panel-actions .panel-linkbtn:focus::after,
+.panel-actions .btn:focus::after {
+  opacity: 1;
+}
+
+/* Íconos uniformes */
+.panel-actions .btn-ico {
+  font-size: 18px;          
+  line-height: 1;             
+  margin-right: 0;            
+  opacity: .7;
+  position: relative;
+  top: .02em;
+}
+
+.panel-actions .panel-linkbtn:hover .btn-ico,
+.panel-actions .btn:hover .btn-ico {
+  opacity: 1;
+}
+
+/* Estado disabled coherente */
+.panel-actions .panel-linkbtn:disabled,
+.panel-actions .btn:disabled {
+  opacity: .45 !important;
+}
+.panel-actions .panel-linkbtn:disabled::after,
+.panel-actions .btn:disabled::after {
+  opacity: .25;
+}
+
+/* Filtros rápidos: */
+.panel-empleado-page .filtros-rapidos-label {
+  color: #3e2214 !important;
+}
+
+/* ====== Título/fecha del header de cada turno ====== */
+
+.panel-empleado-page .accordion-button,
+.panel-empleado-page .accordion-button:not(.collapsed) {
+  color: #3e2214 !important;
+}
+
+/* Mantener la pastilla "Pilates" y otros badges con su color propio */
+.panel-empleado-page .accordion-button .badge {
+  color: #fff !important;         
+}
+
+.panel-empleado-page .accordion-button span,
+.panel-empleado-page .accordion-button strong,
+.panel-empleado-page .accordion-button h5 {
+  color: #3e2214 !important;
+}
+
+/* Título "Leyenda de Estados" */
+.panel-empleado-page .card .card-header.bg-light h6,
+.panel-empleado-page .card .card-header h6.mb-0 {
+  color: #3e2214 !important;
+}
+
+/* ====== Modal Instrucciones ====== */
+/* Fondo del cuerpo del modal */
+.modal-instrucciones-content {
+  background-color: #a1835a !important;
+  border: none;
+  color: #212529; 
+}
+
+/* Títulos internos marcados */
+.modal-instrucciones-content h6 {
+  color: #3e2214 !important;
+  font-weight: 700;
+}
+
+.modal-instrucciones-content .alert,
+.modal-instrucciones-content .alert-info,
+.modal-instrucciones-content .alert-warning {
+  background-color: #fff8ef !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  color: inherit;
+  border-radius: .5rem;
+}
+
+.modal-instrucciones .modal-header .modal-title {
+  color: #3e2214;
+  font-weight: 800;
+}
+
+/* ====== MODAL INSTRUCCIONES ====== */
+.modal-instrucciones .modal-header,
+.modal-instrucciones .modal-header[class*="bg-"] {
+  background: #fff8ef!important;      
+  background-image: none !important;    
+  border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+/* Título e iconos*/
+.modal-instrucciones .modal-header .modal-title,
+.modal-instrucciones .modal-header .bi,
+.modal-instrucciones .modal-header .bi::before {
+  color: #3e2214 !important;
+}
+
+/* Botón cerrar */
+.modal-instrucciones .btn-close {
+  filter: invert(18%) sepia(16%) saturate(1670%) hue-rotate(337deg) brightness(95%) contrast(85%);
+  opacity: .9;
+}
+.modal-instrucciones .btn-close:hover { opacity: 1; }
+
+
+/* Botón “Entendido” */
+.modal-instrucciones .modal-footer .btn-primary,
+.modal-instrucciones-content .btn-primary {
+  background-color: #3e2214 !important;  
+  border-color: #3e2214 !important;
+  color: #fff !important;
+  border-radius: 9999px;                  
+  padding: 10px 22px;
+  font-weight: 700;
+  box-shadow: none !important;
+}
+
+.modal-instrucciones .modal-footer .btn-primary:hover,
+.modal-instrucciones-content .btn-primary:hover,
+.modal-instrucciones .modal-footer .btn-primary:focus,
+.modal-instrucciones-content .btn-primary:focus {
+  background-color: #a1835a !important;
+  border-color: #a1835a !important;
+  color: #3e2214 !important;
+}
+
+.modal-instrucciones .modal-footer .btn-primary:disabled,
+.modal-instrucciones-content .btn-primary:disabled {
+  background-color: #a1835a !important;
+  border-color: #a1835a !important;
+  color: #3e2214 !important;
+  opacity: 1; 
+}
+
+/* ===== HERO RESPONSIVE ===== */
+
+/* Tablet ≥576px y ≤992px */
+@media (max-width: 992px) {
+  
+  .panel-empleado-page header.empleado-hero {
+    min-height: 92vh;
+    background-position: 60% center;
+  }
+
+  /* Frases*/
+  .panel-empleado-page header.empleado-hero .empleado-hero__copy {
+    top: auto !important;
+    bottom:auto !important;     
+    left: 6% !important;
+    transform: none !important;
+    max-width: 80vw;
+  }
+}
+
+/* Celular ≤576px */
+@media (max-width: 576px) {
+  .panel-empleado-page header.empleado-hero {
+    min-height: 100vh;
+    background-position: 62% 42%;    
+    padding-top: 8px;
+  }
+
+  .panel-empleado-page header.empleado-hero .empleado-hero__copy {
+    top: auto !important;
+    bottom: auto !important;      
+    left: 7% !important;
+    transform: none !important;
+    max-width: 86vw;
+  }
+
+  .panel-empleado-page .frase-principal {
+    font-size: clamp(22px, 6.2vw, 34px) !important;
+    line-height: 1.25;
+  }
+
+  .panel-empleado-page .frase-secundaria {
+    font-size: clamp(16px, 4.4vw, 22px) !important;
+    margin-top: 10px;
+  }
+}
+
+/* Extra pequeño ≤420px*/
+@media (max-width: 420px) {
+  .panel-empleado-page header.empleado-hero .empleado-hero__copy {
+    bottom: auto !important;    
+  }
+  
+}
+
+/* ====== PANEL PROFESIONAL – Responsive ====== */
+
+/* Título*/
+@media (max-width: 992px) {
+  .panel-empleado-title {
+    font-size: clamp(22px, 4.8vw, 32px);
+    line-height: 1.15;
+  }
+}
+
+@media (max-width: 768px) {  
+  .panel-empleado-page .bg-gradient-info .row.align-items-center {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px;
+  }
+
+  /* Contenedor de acciones*/
+  .panel-actions {
+    width: 100%;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;       
+    gap: 10px 18px;
+    justify-items: start;
+  }
+
+  /* Botones*/
+  .panel-actions .panel-linkbtn,
+  .panel-actions .btn {
+    width: 100%;                          
+    justify-content: flex-start;
+    padding: 8px 2px;
+    font-size: 15px;
+  }
+  .panel-actions .panel-linkbtn::after,
+  .panel-actions .btn::after {
+    bottom: -2px;
+  }
+}
+
+/* Celulares estrechos: 1 columna para las acciones + ajustes de textos */
+@media (max-width: 420px) {
+  .panel-actions {
+    grid-template-columns: 1fr;           
+    gap: 8px;
+  }
+  .panel-actions .panel-linkbtn,
+  .panel-actions .btn {
+    font-size: 16px;
+  }
+}
+
+/* Filtros rápidos:*/
+@media (max-width: 576px) {
+  .panel-empleado-page .card .d-flex.justify-content-between.align-items-center {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 6px;
+  }
+}
+
+/* Lista de turnos:*/
+@media (max-width: 576px) {
+  .panel-empleado-page .accordion-button {
+    font-size: 15px;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+  }
+}
+
+
