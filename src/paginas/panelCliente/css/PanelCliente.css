@@ -1,0 +1,376 @@
+/* ================================
+   PilaPilates – Panel Cliente (estilos)
+   ================================ */
+
+/* ====== FUENTES ====== */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700;800&family=Poppins:wght@600;700&display=swap');
+
+/* ====== FONDO GLOBAL ====== */
+.panel-cliente-page {
+  background-color: #a1835a;
+}
+
+/* ====== HERO con imagen de fondo ====== */
+.cliente-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: block;
+  background-image: url('/pilates-hero.jpg'); /* imagen en raíz de public */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* sin parallax; todo se mueve junto */
+  background-attachment: scroll;
+}
+
+.cliente-hero__overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* overlay suave para nitidez */
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.10) 40%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+}
+
+/* ====== NavBar en overlay (no sticky) ====== */
+.cliente-hero__navbar {
+  position: relative;
+  top: auto;
+  z-index: 5;
+}
+
+.cliente-hero__navbar .navbar,
+.cliente-hero__navbar .navbar.bg-light,
+.cliente-hero__navbar .navbar-light {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ====== TEXTOS del hero ====== */
+.cliente-hero__copy {
+  position: absolute;
+  top: 275px;
+  left: 650px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 750px;
+  pointer-events: none;
+  transform: translateY(-10%);
+}
+
+.frase-principal {
+  margin: 0;
+  line-height: 1.25;
+  font-weight: 700;
+  font-size: clamp(22px, 3vw, 40px);
+  color: #3e2214;                   /* Merriweather */
+  text-wrap: balance;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.25);
+  font-family: "Merriweather", serif;
+}
+
+.frase-secundaria {
+  margin-top: 14px;
+  padding: 10px;
+  font-weight: 600;
+  margin-left: 110px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: clamp(18px, 2vw, 24px);
+  color: #a1835a;                   /* Poppins */
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+/* ====== TÍTULOS ====== */
+.panel-cliente-title {
+  font-family: "Merriweather", serif;
+  font-weight: 800;
+  color: #3e2214;
+}
+
+/* ====== CONTENIDO GENERAL ====== */
+.panel-cliente-page .card:not([class*="bg-"]),
+.panel-cliente-page .card-body,
+.panel-cliente-page .modal-content,
+.panel-cliente-page .accordion-item,
+.panel-cliente-page .table,
+.panel-cliente-page .alert {
+  background-color: #fff8ef !important;
+}
+
+/* Textos y bordes */
+.panel-cliente-page .text-primary,
+.panel-cliente-page .text-success,
+.panel-cliente-page .text-warning,
+.panel-cliente-page .text-info {
+  color: #3e2214 !important;
+}
+
+.panel-cliente-page .border-primary,
+.panel-cliente-page .border-success,
+.panel-cliente-page .border-warning,
+.panel-cliente-page .border-info {
+  border-color: #3e2214 !important;
+}
+
+/* ====== ENCABEZADO DEL PANEL ====== */
+.panel-cliente-page .bg-gradient-info {
+  background: #fff8ef !important;
+}
+.panel-cliente-page .bg-gradient-info.text-white,
+.panel-cliente-page .bg-gradient-info .text-white {
+  color: #3e2214 !important;
+}
+
+/* ====== BOTONES – estilos generales ====== */
+.panel-cliente-page .btn-primary {
+  background-color: #3e2214 !important;
+  border-color: #3e2214 !important;
+  color: #fff !important;
+  border-radius: 9999px;
+  padding: 10px 22px;
+  font-weight: 700;
+  box-shadow: none !important;
+}
+
+.panel-cliente-page .btn-primary:hover,
+.panel-cliente-page .btn-primary:focus {
+  background-color: #a1835a !important;
+  border-color: #a1835a !important;
+  color: #3e2214 !important;
+}
+
+/* Botones outline (por si se usan en otros lados) */
+.panel-cliente-page .btn-outline-primary {
+  border-color: #3e2214 !important;
+  color: #3e2214 !important;
+}
+.panel-cliente-page .btn-outline-primary:hover {
+  background-color: #3e2214 !important;
+  color: #fff8ef !important;
+}
+
+/* ====== SELECTOR DE VISTA (dos botones iguales) ====== */
+.panel-cliente-page .panel-pill-btn {
+  border-radius: 9999px !important;
+  padding: 10px 20px !important;
+  font-weight: 700 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  box-shadow: none !important;
+}
+.panel-cliente-page .panel-pill-btn .bi {
+  font-size: 1.1rem;
+  line-height: 1;
+  position: relative;
+  top: .02em;
+}
+
+/* ====== MODAL ====== */
+.modal-instrucciones-content {
+  background-color: #a1835a !important;
+  border: none;
+  color: #212529;
+}
+
+.modal-instrucciones-content h6 {
+  color: #3e2214 !important;
+  font-weight: 700;
+}
+
+.modal-instrucciones-content .alert {
+  background-color: #fff8ef !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: inherit;
+  border-radius: 0.5rem;
+}
+
+.modal-instrucciones .modal-header .modal-title {
+  color: #3e2214 !important;
+  font-weight: 800;
+}
+
+.modal-instrucciones .modal-header {
+  background: #fff8ef !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.modal-instrucciones .btn-close {
+  filter: invert(18%) sepia(16%) saturate(1670%) hue-rotate(337deg) brightness(95%) contrast(85%);
+  opacity: 0.9;
+}
+.modal-instrucciones .btn-close:hover { opacity: 1; }
+
+.modal-instrucciones .modal-footer .btn-primary,
+.modal-instrucciones-content .btn-primary {
+  background-color: #3e2214 !important;
+  border-color: #3e2214 !important;
+  color: #fff !important;
+  border-radius: 9999px;
+  padding: 10px 22px;
+  font-weight: 700;
+  box-shadow: none !important;
+}
+
+.modal-instrucciones .modal-footer .btn-primary:hover,
+.modal-instrucciones-content .btn-primary:hover,
+.modal-instrucciones .modal-footer .btn-primary:focus,
+.modal-instrucciones-content .btn-primary:focus {
+  background-color: #a1835a !important;
+  border-color: #a1835a !important;
+  color: #3e2214 !important;
+}
+
+/* ====== TABLAS Y LEYENDAS ====== */
+.panel-cliente-page .table th,
+.panel-cliente-page .table td {
+  color: #3e2214;
+  vertical-align: middle;
+}
+
+.panel-cliente-page .badge {
+  font-weight: 600;
+}
+
+/* ===== HERO RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .panel-cliente-page header.cliente-hero {
+    min-height: 92vh;
+    background-position: 60% center;
+  }
+  .panel-cliente-page header.cliente-hero .cliente-hero__copy {
+    top: auto !important;
+    bottom: auto !important;
+    left: 6% !important;
+    transform: none !important;
+    max-width: 80vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .panel-cliente-page header.cliente-hero {
+    min-height: 100vh;
+    background-position: 62% 42%;
+    padding-top: 8px;
+  }
+  .panel-cliente-page header.cliente-hero .cliente-hero__copy {
+    top: auto !important;
+    bottom: auto !important;
+    left: 7% !important;
+    transform: none !important;
+    max-width: 86vw;
+  }
+  .panel-cliente-page .frase-principal {
+    font-size: clamp(22px, 6.2vw, 34px) !important;
+    line-height: 1.25;
+  }
+  .panel-cliente-page .frase-secundaria {
+    font-size: clamp(16px, 4.4vw, 22px) !important;
+    margin-top: 10px;
+  }
+}
+
+/* Extra pequeño ≤420px*/
+@media (max-width: 420px) {
+  .panel-cliente-page header.cliente-hero .cliente-hero__copy {
+    bottom: auto !important;
+  }
+}
+
+/* ====== PANEL CLIENTE – Responsive ====== */
+@media (max-width: 992px) {
+  .panel-cliente-title {
+    font-size: clamp(22px, 4.8vw, 32px);
+    line-height: 1.15;
+  }
+}
+
+/* Filtros rápidos */
+@media (max-width: 576px) {
+  .panel-cliente-page .card .d-flex.justify-content-between.align-items-center {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 6px;
+  }
+}
+
+/* Lista de turnos */
+@media (max-width: 576px) {
+  .panel-cliente-page .accordion-button {
+    font-size: 15px;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+  }
+}
+
+/* ====== HERO – ajustes finos por breakpoint ====== */
+
+/* Mobile L ≤425px: más abajo */
+@media (max-width: 425px) {
+  .cliente-hero__copy{
+    top: auto !important;
+    bottom: auto !important;
+    left: 7% !important;
+    transform: none !important;
+    max-width: 86vw !important;
+    margin-top: 50px;    
+  }
+  .frase-secundaria{ 
+    margin-left: 200px !important;
+    margin-top: 50px !important; 
+  }
+}
+
+/* Mobile M ≤375px: aún más abajo */
+@media (max-width: 375px) {
+  .cliente-hero__copy{ bottom: 16% !important; }
+  .frase-secundaria{ 
+    margin-left: 180px !important;
+    margin-top: 60px !important; 
+  }
+}
+
+/* Mobile S ≤320px: lo más abajo de los tres */
+@media (max-width: 320px) {
+  .cliente-hero__copy{ bottom: 18% !important; }
+  .frase-secundaria{ 
+    margin-left: 130px !important;
+    margin-top: 55px !important; 
+  }
+}
+
+/* Tablet 577–991px: mucho más abajo y a la derecha */
+@media (min-width: 577px) and (max-width: 991.98px) {
+  .cliente-hero__copy{
+    top: auto !important;
+    bottom: auto !important;
+    left: 58% !important;     /* “a la derecha” */
+    transform: none !important;
+    max-width: 38vw !important;
+    margin-top: 40px;
+    margin-left: 500px !important;
+  }
+  .frase-secundaria{ margin-left: 0 !important; }
+}
+
+/* Laptop: 1024px–1300px */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .cliente-hero__copy{
+    top: 300px !important;
+    left: 650px !important;
+    bottom: auto !important;
+    transform: translateY(-10%) !important;
+    max-width: 750px !important;    
+  }
+  .frase-secundaria{ margin-left: 20px !important; }
+}
+
