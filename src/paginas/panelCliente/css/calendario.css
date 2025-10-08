@@ -1,11 +1,84 @@
-/* Estilos para eventos del calendario */
+/* ====== HEADER del calendario ====== */
+.calendar-header {
+  background-color: #3e2214 !important;  /* fondo */
+  color: #a1835a !important;             /* texto */
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+}
+
+.calendar-header .calendar-title {
+  color: #a1835a !important;
+  font-family: "Merriweather", serif;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.calendar-header .calendar-title .bi {
+  font-size: 1.2rem;
+  line-height: 1;
+  position: relative;
+  top: .02em;
+}
+
+.calendar-header .calendar-subtitle {
+  margin-top: .15rem;
+  color: #a1835a !important;
+  font-weight: 600;
+}
+
+/* ====== TOOLBAR FullCalendar (prev/next, "Mes", título) ====== */
+/* Franja donde aparece "octubre de 2025" */
+.calendar-container .fc .fc-toolbar.fc-header-toolbar {
+  background-color: #a1835a;
+  border-radius: .5rem;
+  padding: 12px 14px;
+}
+
+/* Título del mes */
+.calendar-container .fc .fc-toolbar-title {
+  color: #3e2214;
+  font-family: "Merriweather", serif;
+  font-weight: 800;
+}
+
+/* Botones prev/next y "Mes" (misma forma, nuevos colores) */
+.calendar-container .fc .fc-button,
+.calendar-container .fc .fc-button:disabled,
+.calendar-container .fc .fc-button-primary,
+.calendar-container .fc .fc-button-primary:disabled,
+.calendar-container .fc .fc-button-group .fc-button {
+  background-color: #3e2214 !important;
+  border-color: #3e2214 !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+/* Hover/activo */
+.calendar-container .fc .fc-button:hover,
+.calendar-container .fc .fc-button:focus,
+.calendar-container .fc .fc-button:active,
+.calendar-container .fc .fc-button.fc-button-active {
+  background-color: #a1835a !important;
+  border-color: #a1835a !important;
+  color: #3e2214 !important;
+}
+
+/* Asegurar color de flechas/íconos */
+.calendar-container .fc .fc-button .fc-icon {
+  color: inherit !important;
+}
+
+/* ====== Estilos para eventos del calendario ====== */
 .turno-disponible {
   cursor: pointer;
   opacity: 1;
+  transition: transform .15s ease, opacity .15s ease;
 }
 
 .turno-disponible:hover {
-  opacity: 0.8;
+  opacity: 0.9;
   transform: scale(1.02);
 }
 
@@ -23,8 +96,296 @@
   font-weight: bold;
 }
 
-/* Modal de reserva */
+/* ====== Modal de reserva ====== */
 .modal-content {
   border-radius: 15px;
 }
+
+/* ====== Colores de textos del calendario ====== */
+
+/* Días de la semana (lun, mar, mié...) */
+.calendar-container .fc .fc-col-header-cell-cushion,
+.calendar-container .fc .fc-col-header-cell-cushion:hover,
+.calendar-container .fc .fc-col-header-cell-cushion:focus {
+  color: #3e2214 !important;
+}
+
+/* Números de cada día (1, 2, 3...) */
+.calendar-container .fc .fc-daygrid-day-number,
+.calendar-container .fc .fc-daygrid-day-number:hover,
+.calendar-container .fc .fc-daygrid-day-number:focus {
+  color: #3e2214 !important;
+}
+
+/* Texto de los eventos de día (hora, servicio, profe, cupos) */
+.calendar-container .fc .fc-daygrid-event,
+.calendar-container .fc .fc-daygrid-event a,
+.calendar-container .fc .fc-daygrid-event .fc-event-main,
+.calendar-container .fc .fc-daygrid-event .fc-event-main * {
+  color: #3e2214 !important;
+}
+
+/* Color para "Leyenda:" */
+.leyenda strong {
+  color: #3e2214 !important;
+}
+
+/* (extra) si algún estilo la sobreescribe por herencia */
+.panel-cliente-page .leyenda,
+.panel-cliente-page .leyenda strong {
+  color: #3e2214 !important;
+}
+
+/* Quitar el fondo amarillo del día de hoy en el calendario */
+.calendar-container .fc .fc-daygrid-day.fc-day-today,
+.calendar-container .fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-frame,
+.calendar-container .fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-top {
+  background-color: inherit !important;   /* se iguala al resto */
+}
+
+/* (opcional) por si algún tema aplica un borde extra al "hoy" */
+.calendar-container .fc .fc-daygrid-day.fc-day-today {
+  border-color: inherit !important;
+}
+
+/* Fondo de toda la grilla igual al resto del calendario */
+.calendar-container .fc-theme-standard .fc-scrollgrid,
+.calendar-container .fc .fc-daygrid-day,
+.calendar-container .fc .fc-daygrid-day-frame {
+  background-color: white !important;
+}
+
+/* Bordes de la grilla (celdas y cabecera) del mismo color para “fundir” las líneas */
+.calendar-container .fc-theme-standard td,
+.calendar-container .fc-theme-standard th,
+.calendar-container .fc .fc-col-header-cell,
+.calendar-container .fc .fc-daygrid-day,
+.calendar-container .fc .fc-scrollgrid,
+.calendar-container .fc .fc-scrollgrid-sync-table {
+  border-color: #b0b7bc !important;
+}
+
+/* ===========================
+   Modal RESERVA – tema PilaPilates
+   (igual al modal de INSTRUCCIONES)
+   =========================== */
+
+/* Paleta (opcional, por claridad) */
+:root {
+  --pp-brown: #3e2214;
+  --pp-sand:  #a1835a;
+  --pp-cream: #fff8ef;
+}
+
+/* Cuerpo del modal */
+.modal-reserva-content {
+  background-color: var(--pp-sand) !important; /* marrón claro */
+  border: none;
+  color: #212529;
+  border-radius: 12px;
+}
+
+/* Títulos, subtítulos y énfasis dentro del cuerpo */
+.modal-reserva-content h5,
+.modal-reserva-content h6,
+.modal-reserva-content strong,
+.modal-reserva-content label {
+  color: var(--pp-brown) !important;
+  font-weight: 700;
+}
+
+/* Header del modal (barra superior) */
+.modal-reserva .modal-header {
+  background: var(--pp-cream) !important;  /* crema */
+  border-bottom: 1px solid rgba(0,0,0,.15);
+}
+.modal-reserva .modal-header .modal-title {
+  color: var(--pp-brown) !important;
+  font-weight: 800;
+}
+
+/* Botón de cerrar (X) */
+.modal-reserva .btn-close {
+  filter: invert(18%) sepia(16%) saturate(1670%) hue-rotate(337deg)
+          brightness(95%) contrast(85%);
+  opacity: .9;
+}
+.modal-reserva .btn-close:hover { opacity: 1; }
+
+/* Alertas dentro del modal (info / warning) con look crema */
+.modal-reserva-content .alert,
+.modal-reserva-content .alert-info,
+.modal-reserva-content .alert-warning {
+  background-color: var(--pp-cream) !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  color: inherit;
+  border-radius: .5rem;
+}
+
+/* Footer: no tocamos colores de los botones de acción (verde/azul),
+   solo mantenemos el redondeado y consistencia si usás .btn-primary adentro */
+.modal-reserva .modal-footer .btn-primary {
+  border-radius: 9999px;
+  font-weight: 700;
+  padding: 10px 22px;
+}
+
+/* ====== MODAL RESERVA – Misma paleta que el de Instrucciones ====== */
+.modal-reserva-content{
+  background-color:#a1835a !important;
+  border:none;
+  color:#212529;
+}
+.modal-reserva .modal-header{
+  background:#fff8ef !important;
+  border-bottom:1px solid rgba(0,0,0,.15);
+}
+.modal-reserva .modal-title{
+  color:#3e2214 !important;
+  font-weight:800;
+}
+.modal-reserva .modal-title .bi{
+  color:#3e2214;
+  margin-right:.5rem;
+}
+.modal-reserva .btn-close{
+  filter: invert(18%) sepia(16%) saturate(1670%) hue-rotate(337deg) brightness(95%) contrast(85%);
+  opacity:.9;
+}
+.modal-reserva .btn-close:hover{ opacity:1; }
+
+.modal-reserva .alert-info{
+  background-color:#fff8ef !important;
+  border-color:rgba(0,0,0,.08) !important;
+  color:inherit;
+  border-radius:.5rem;
+}
+.modal-reserva .alert-info .bi{
+  color:#3e2214;
+  margin-right:.35rem;
+}
+
+/* Botonera: los 3 botones idénticos al “Entendido” */
+.modal-reserva .modal-footer{
+  border-top:1px solid rgba(0,0,0,.15);
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.modal-reserva .modal-footer .btn,
+.modal-reserva-content .btn,
+.btn-pila{
+  background-color:#3e2214 !important;
+  border-color:#3e2214 !important;
+  color:#fff !important;
+  border-radius:9999px;
+  padding:10px 22px;
+  font-weight:700;
+  box-shadow:none !important;
+}
+.modal-reserva .modal-footer .btn:hover,
+.modal-reserva .modal-footer .btn:focus,
+.btn-pila:hover,
+.btn-pila:focus{
+  background-color:#a1835a !important;
+  border-color:#a1835a !important;
+  color:#3e2214 !important;
+}
+
+/* Aviso warning del modal con la misma paleta */
+.modal-reserva .alert-warning{
+  background-color:#fff8ef !important;
+  border-color:rgba(0,0,0,.08) !important;
+  color:inherit;
+  border-radius:.5rem;
+}
+.modal-reserva .alert-warning .bi{
+  color:#3e2214;
+  margin-right:.35rem;
+}
+
+/* =========================================================
+   ListaTurnosCliente – Skin empleado (misma paleta/estética)
+   ========================================================= */
+
+/* Header "Mis Turnos Reservados" */
+.panel-cliente-page .lista-turnos > .card.mb-4.border-0.shadow-sm > .card-header {
+  background: #fff8ef !important;          /* mismo fondo que empleado */
+  color: #3e2214 !important;                /* mismo color de texto */
+  border-bottom: 1px solid rgba(0,0,0,.15);
+}
+.panel-cliente-page .lista-turnos > .card .bi { color: #3e2214 !important; }
+
+/* Item del acordeón (barra superior del turno) */
+.panel-cliente-page .lista-turnos .accordion-item {
+  border: 0;
+  background: transparent;
+}
+.panel-cliente-page .lista-turnos .accordion-header .accordion-button,
+.panel-cliente-page .lista-turnos .accordion-button:not(.collapsed) {
+  background-color: #fff8ef !important;
+  color: #3e2214 !important;
+  box-shadow: none !important;
+  border-radius: .5rem !important;
+}
+.panel-cliente-page .lista-turnos .accordion-button:focus {
+  box-shadow: none !important;
+}
+
+/* Flecha del acordeón al color de marca */
+.panel-cliente-page .lista-turnos .accordion-button::after {
+  filter: invert(18%) sepia(16%) saturate(1670%) hue-rotate(337deg) brightness(95%) contrast(85%);
+}
+
+/* Cuerpo expandido */
+.panel-cliente-page .lista-turnos .accordion-body {
+  background-color: #fff8ef !important;    /* mismo “papel” crema */
+  border-radius: .5rem;
+}
+
+/* Tarjetas internas dentro del detalle (Información / Mi Reserva) */
+.panel-cliente-page .lista-turnos .accordion-body .card,
+.panel-cliente-page .lista-turnos .accordion-body .card-header,
+.panel-cliente-page .lista-turnos .accordion-body .card-body {
+  background-color: #fff8ef !important;
+  color: #3e2214 !important;
+  border: none !important;
+}
+.panel-cliente-page .lista-turnos .accordion-body .card-header h6,
+.panel-cliente-page .lista-turnos .accordion-body h6 {
+  color: #3e2214 !important;
+  font-weight: 700;
+}
+
+/* Tablas internas (info de turno y mi reserva) */
+.panel-cliente-page .lista-turnos .accordion-body .table,
+.panel-cliente-page .lista-turnos .accordion-body .table th,
+.panel-cliente-page .lista-turnos .accordion-body .table td {
+  background-color: #fff8ef !important;
+  color: #3e2214 !important;
+  border-color: rgba(0,0,0,.08) !important;
+}
+
+/* Etiquetas, textos y pequeños iconos al color de marca */
+.panel-cliente-page .lista-turnos .text-muted { color: #3e2214 !important; opacity: .7; }
+.panel-cliente-page .lista-turnos .bi { color: #3e2214 !important; }
+
+/* Alerts dentro del detalle (avisos/cancelación) */
+.panel-cliente-page .lista-turnos .alert {
+  background-color: #fff8ef !important;
+  border-color: rgba(0,0,0,.08) !important;
+  color: #3e2214 !important;
+}
+
+/* Badges: dejamos sus colores originales (Pilates/Yoga/...) 
+   pero nos aseguramos de que el resto de textos mantenga la marca */
+.panel-cliente-page .lista-turnos .badge { font-weight: 600; }
+
+/* Botones dentro del detalle (p.ej. Cancelar reserva) */
+.panel-cliente-page .lista-turnos .btn-outline-danger {
+  border-width: 2px;
+  border-radius: 9999px;
+}
+
+
 
