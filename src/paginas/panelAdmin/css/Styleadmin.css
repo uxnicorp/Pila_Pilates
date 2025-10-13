@@ -1,23 +1,438 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700;800&family=Poppins:wght@600;700&display=swap');
+
+:root{
+  --pp-brown:#3e2214;
+  --pp-sand:#a1835a;
+  --pp-cream:#fff8ef;
+}
+
 body {
-    min-height: 100vh;
-    background:#fff8ef; /*1 i 3 de la pal 1*/
-    overflow-x: hidden;
-    
-  }
+  min-height: 100vh;
+  background: var(--pp-sand); 
+  overflow-x: hidden;
+}
 
+/* ====== ENCABEZADOS Y BLOQUES ====== */
 .bg_head_calendar{
-    background-color:#3e2214
+  background-color: var(--pp-brown) !important;
+  color: var(--pp-sand) !important;
 }
-
-.text_m{
-    color: #3e2214;
+.bg_head_calendar h5,
+.bg_head_calendar h6{
+  color: var(--pp-sand) !important;
+  font-family: "Merriweather", serif;
+  font-weight: 800;
 }
+.text_m{ color: var(--pp-brown); }
 
+/* Cuerpo de tarjetas relacionadas al calendario */
 .bg_calendar{
-    background: #a1835a;
+  background: var(--pp-sand) !important;
+  color: var(--pp-brown);
 }
 
+/* Botón claro con colores de marca */
 .color_buton{
-    background: #fff8ef;
-    color: #3e2214;
+  background: var(--pp-cream) !important;
+  color: var(--pp-brown) !important;
 }
+
+/* ====== BOTONES ====== */
+.btn,
+button {
+  border-radius: 9999px;
+  font-weight: 700;
+}
+.btn-primary,
+.btn-success,
+.btn-light,
+.btn-outline-secondary,
+.btn-outline-danger {
+  box-shadow: none !important;
+}
+.btn-success,
+.btn-primary {
+  background-color: var(--pp-brown) !important;
+  border-color: var(--pp-brown) !important;
+  color: #fff !important;
+}
+.btn-success:hover,
+.btn-primary:hover,
+.btn-success:focus,
+.btn-primary:focus {
+  background-color: var(--pp-sand) !important;
+  border-color: var(--pp-sand) !important;
+  color: var(--pp-brown) !important;
+}
+
+/* ====== LISTA DE TURNOS ====== */
+.lista-turnos > .card.bg_head_calendar,
+.lista-turnos > .card.mb-4.border-0.shadow-sm {
+  background: var(--pp-cream) !important;
+  color: var(--pp-brown) !important;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+}
+.lista-turnos > .card .bi { color: var(--pp-brown) !important; }
+
+.lista-turnos .accordion-item { border: 0; background: transparent; }
+.lista-turnos .accordion-header .accordion-button,
+.lista-turnos .accordion-button:not(.collapsed) {
+  background-color: var(--pp-cream) !important;
+  color: var(--pp-brown) !important;
+  box-shadow: none !important;
+  border-radius: .5rem !important;
+}
+.lista-turnos .accordion-button:focus { box-shadow: none !important; }
+.lista-turnos .accordion-button::after {
+  filter: invert(18%) sepia(16%) saturate(1670%) hue-rotate(337deg) brightness(95%) contrast(85%);
+}
+
+.lista-turnos .accordion-body {
+  background-color: var(--pp-cream) !important;
+  border-radius: .5rem;
+}
+.lista-turnos .accordion-body .card,
+.lista-turnos .accordion-body .card-header,
+.lista-turnos .accordion-body .card-body {
+  background-color: var(--pp-cream) !important;
+  color: var(--pp-brown) !important;
+  border: none !important;
+}
+.lista-turnos .accordion-body h6 { color: var(--pp-brown) !important; font-weight: 700; }
+
+.lista-turnos .table,
+.lista-turnos .table th,
+.lista-turnos .table td {
+  background-color: var(--pp-cream) !important;
+  color: var(--pp-brown) !important;
+  border-color: rgba(0,0,0,.08) !important;
+}
+.lista-turnos .text-muted { color: var(--pp-brown) !important; opacity: .7; }
+.lista-turnos .bi { color: var(--pp-brown) !important; }
+.lista-turnos .alert {
+  background-color: var(--pp-cream) !important;
+  border-color: rgba(0,0,0,.08) !important;
+  color: var(--pp-brown) !important;
+}
+.lista-turnos .badge { font-weight: 600; }
+
+/* ====== TITULOS GENERALES ====== */
+h2, .h2, .panel-cliente-title {
+  font-family: "Merriweather", serif;
+  font-weight: 800;
+  color: var(--pp-brown);
+}
+
+/* ===== HERO ADMIN ===== */
+.admin-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;  
+  display: block;
+  background-image: url('/pilatesadmin-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll; 
+}
+
+.admin-hero__overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.12) 0%,
+    rgba(255,255,255,0.08) 40%,
+    rgba(255,255,255,0.04) 100%
+  );
+}
+
+/* NavBar dentro del hero (transparente) */
+.admin-hero__navbar {
+  position: relative;
+  top: auto;
+  z-index: 5;
+}
+.admin-hero__navbar .navbar,
+.admin-hero__navbar .navbar.bg-light,
+.admin-hero__navbar .navbar-light {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* (Opcional base) textos del hero */
+.admin-hero__copy {
+  position: absolute;
+  bottom: 10%;
+  left: 8%;
+  z-index: 3;
+  max-width: 720px;
+  pointer-events: none;
+}
+.admin-hero__title {
+  margin: 0;
+  font-family: "Merriweather", serif;
+  font-weight: 800;
+  font-size: clamp(24px, 3.2vw, 40px);
+  color: #3e2214;
+  text-shadow: 0 1px 1px rgba(255,255,255,0.25);
+}
+.admin-hero__subtitle {
+  margin-top: 8px;
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: clamp(16px, 2vw, 20px);
+  color: #a1835a;
+}
+
+/* ===== HERO – frases ===== */
+.admin-hero__copy--admin{
+  position: absolute;  
+  top: 100px;
+  left: 100px;
+  z-index: 3;
+  max-width: 520px;
+  pointer-events: none;
+  transform: none;
+}
+
+/* Frase principal */
+.admin-hero__quote{
+  margin: 0;
+  line-height: 1.1;
+  font-weight: 800;
+  font-family: "Merriweather", serif;
+  font-size: clamp(26px, 3.2vw, 44px);
+  color: #3e2214; 
+  text-wrap: balance;
+  text-shadow: 0 1px 1px rgba(255,255,255,0.22);
+}
+
+/* Subfrase "nuestro compromiso" */
+.admin-hero__tag{
+  margin-top: 30px; 
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: .08em;
+  font-size: clamp(16px, 1.6vw, 22px);
+  color: #a1835a;   
+  margin-left: 120px;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.04);
+}
+
+/* ===== Encabezado intro ===== */
+.admin-intro{
+  background: var(--pp-cream) !important;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .5rem;
+  padding: 16px 18px;
+  box-shadow: none;
+}
+
+/* Título */
+.admin-intro h2{
+  margin: 0 0 6px 0;
+  font-family: "Merriweather", serif;
+  font-weight: 800;
+  color: var(--pp-brown);
+}
+
+/* Línea de pasos debajo del título */
+.admin-intro .steps{
+  margin: 0;
+  color: var(--pp-brown);
+  opacity: .9;
+  font-weight: 600;
+}
+
+/* Separación respecto al hero */
+.admin-hero + .container-fluid{
+  margin-top: 20px;  }
+
+  /* ===== Cambiar el "celeste" de las Alert a #fff8ef ===== */
+.bg_head_calendar .alert,
+.bg_head_calendar .alert-info,
+.alert-info {
+  background-color: var(--pp-cream) !important;  
+  border-color: rgba(0,0,0,.08) !important;
+  color: inherit;
+}
+
+/* ===== Fondo crema en el panel lateral de controles ===== */
+.sticky-top .card-body {
+  background-color: var(--pp-cream) !important;   
+}
+
+/* ===== Botón "Volver a Profesional" ===== */
+.btn-outline-secondary {
+  background-color: var(--pp-cream) !important;   
+  color: var(--pp-brown) !important;
+  border-color: var(--pp-brown) !important;
+}
+
+/* si usás .btn-light como botón claro, se iguala al crema */
+.btn-light {
+  background-color: var(--pp-cream) !important;   
+  color: var(--pp-brown) !important;
+  border-color: var(--pp-brown) !important;
+}
+
+/* ===== Selector de Horarios: ===== */
+.sticky-top .card .h-100.text-center h6{
+  font-size: 0.78rem !important;  
+  line-height: 1.1 !important;
+  font-weight: 600 !important;
+  color: #6c757d !important;        
+  margin-bottom: .25rem !important;
+}
+
+/* igualamos el tamaño de la línea “a 10:00” para que queden parejos */
+.sticky-top .card .h-100.text-center small{
+  font-size: 0.78rem !important;
+  line-height: 1.1 !important;
+}
+
+/* cuando el card está seleccionado (fondo verde), mantiene el contraste */
+.sticky-top .card .h-100.text-center[style*="background-color: #28a745"] h6,
+.sticky-top .card .h-100.text-center[style*="background-color:#28a745"] h6,
+.sticky-top .card .h-100.text-center[style*="background-color: #28a745"] small,
+.sticky-top .card .h-100.text-center[style*="background-color:#28a745"] small{
+  color: #fff !important;
+}
+
+/* ===== Paso 3 – fondos marrón (#3e2214) ===== */
+
+/* Header "Seleccionar Dos Horarios" */
+.sticky-top .card-body > .card > .card-header {
+  background-color: var(--pp-brown) !important;  
+  color: var(--pp-cream) !important;            
+  border: none !important;
+  border-radius: .5rem .5rem 0 0;
+}
+
+/* Bloque "Resumen final" */
+.sticky-top .card-body .bg-light {
+  background-color: var(--pp-brown) !important;  
+  color: var(--pp-cream) !important;             
+  border: none !important;
+}
+
+/* Títulos/énfasis dentro del bloque */
+.sticky-top .card-body .bg-light h6 {
+  color: var(--pp-sand) !important;              
+  font-family: "Merriweather", serif;
+  font-weight: 800;
+}
+
+/* Si hay textos con clases de color que hereden el crema */
+.sticky-top .card-body .bg-light * {
+  color: inherit;
+}
+
+/* Texto descriptivo del header "Seleccionar Dos Horarios" */
+.sticky-top .card-body > .card > .card-header .form-text,
+.sticky-top .card-body > .card > .card-header .text-muted{
+  color: var(--pp-sand) !important; 
+  opacity: 1 !important;            
+}
+
+/* Texto "Total: X turnos" */
+.lista-turnos .card-header small{
+  color: var(--pp-brown) !important; 
+  font-weight: 600;
+}
+
+/* Responsive hero admin */
+@media (max-width: 992px) {
+  .admin-hero { min-height: 44vh; background-position: 60% center; }
+  .admin-hero__copy { left: 6%; bottom: 8%; max-width: 86vw; }
+  .admin-hero__copy--admin{ top: 28%; left: 6%; max-width: 70vw; }
+  .admin-hero__tag{ margin-left: 80px; }
+}
+@media (max-width: 576px) {
+  .admin-hero { min-height: 48vh; background-position: 62% 42%; }
+  .admin-hero__copy { left: 7%; bottom: 6%; max-width: 90vw; }
+  .admin-hero__copy--admin{ top: 20%; left: 6%; max-width: 84vw; }
+  .admin-hero__tag{ margin-left: 40px; }
+}
+
+/* ===== HERO ADMIN – Mejora responsive ===== */
+
+.admin-hero{
+  min-height: 88vh;
+  background-size: cover;
+  background-position: 62% 50%;
+}
+
+.admin-hero__copy--admin{
+  max-width: min(520px, 86vw);
+  hyphens: auto;
+  overflow-wrap: anywhere;
+}
+
+.admin-hero__quote{  
+  font-size: clamp(18px, 3.2vw, 44px);
+  line-height: 1.18;
+}
+
+.admin-hero__tag{  
+  font-size: clamp(12px, 1.8vw, 22px);
+  margin-left: clamp(24px, 8vw, 120px);
+}
+
+/* ====== Tablets ≤ 992px ====== */
+@media (max-width: 992px){
+  .admin-hero{ 
+    min-height: 60vh; 
+    background-position: 60% 48%;
+  }
+  .admin-hero__copy--admin{
+    top: 100px;
+    left: 6%;
+    max-width: 76vw;
+  }
+  .admin-hero__quote{ 
+    font-size: clamp(18px, 4.2vw, 32px);
+    line-height: 1.16;
+  }
+  .admin-hero__tag{ 
+    font-size: clamp(12px, 2.2vw, 18px);
+    margin-left: 8vw;
+    color: #956537;
+  }
+}
+
+/* ====== Mobile M & l ≤ 576px ====== */
+@media (max-width: 576px){
+  .admin-hero{
+    min-height: 58vh;
+    background-position: 64% 46%;
+  }
+  .admin-hero__copy--admin{
+    top: 95px;
+    left: 6%;
+    max-width: 86vw;
+  }
+  .admin-hero__quote{
+    font-size: clamp(16px, 6.6vw, 24px);
+    line-height: 1.15;
+  }
+  .admin-hero__tag{
+    font-size: clamp(12px, 3.6vw, 16px);
+    margin-left: 6vw;
+    color: #956537;
+  }
+}
+
+/* ====== Mobile S ≤ 360px ====== */
+@media (max-width: 360px){
+  .admin-hero{
+    min-height: 56vh;
+    background-position: 66% 46%;
+  }
+  .admin-hero__copy--admin{ top: 90px; }
+  .admin-hero__quote{ font-size: clamp(15px, 6.8vw, 22px); }
+  .admin-hero__tag{ font-size: clamp(11px, 3.8vw, 15px); margin-left: 4vw; color: #956537;}
+}
+
