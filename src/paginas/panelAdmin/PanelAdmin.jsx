@@ -1,27 +1,26 @@
-import { useEffect, useState } from 'react'
-import { Alert, Button, Card, Col, Container, Row } from 'react-bootstrap';
-import { useLocation, useNavigate } from 'react-router-dom';
-import SelectEmpleado from './componentes/Select_Empleados';
-import SelectorHoras from './componentes/Selector_horas';
-import { crearTurnosPorLote } from './helper/crearTurnos';
-import { obtenerTurnosParaCalendario } from './helper/cargarTurnos';
-import Calendario from './componentes/Calendario';
-import { NavBar } from '../../Componentes/Navbar';
-import MostrarTurnos from '../../Componentes/MostrarTurnos';
-import ListaTurnos from './componentes/ListadoTurnos';
+import { useEffect, useState } from "react";
+import { Alert, Button, Card, Col, Container, Row } from "react-bootstrap";
+import { useLocation, useNavigate } from "react-router-dom";
+import SelectEmpleado from "./componentes/Select_Empleados";
+import SelectorHoras from "./componentes/Selector_horas";
+import { crearTurnosPorLote } from "./helper/crearTurnos";
+import { obtenerTurnosParaCalendario } from "./helper/cargarTurnos";
+import Calendario from "./componentes/Calendario";
+import { NavBar } from "../../Componentes/Navbar";
+import MostrarTurnos from "../../Componentes/MostrarTurnos";
+import ListaTurnos from "./componentes/ListadoTurnos";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import "./css/Styleadmin.css";
 
-
 export const PanelAdmin = () => {
-
   const location = useLocation();
   const user = location.state;
 
-  const [paso, setPaso] = useState(1); // 1: Profesional, 2: Fechas, 3: Horarios
+  const [paso, setPaso] = useState(1); 
   const [profesionalId, setProfesionalId] = useState(null);
   const [fechasSeleccionadas, setFechasSeleccionadas] = useState([]);
   const [horariosSeleccionados, setHorariosSeleccionados] = useState([]);
-  const [servicio, setServicio] = useState('Pilates');
+  const [servicio, setServicio] = useState("Pilates");
 
   const [turnos, setTurnos] = useState([]);
   const [cargando, setCargando] = useState(true);
@@ -35,8 +34,8 @@ export const PanelAdmin = () => {
       const todosLosTurnos = await obtenerTurnosParaCalendario();
       setTurnos(todosLosTurnos);
     } catch (err) {
-      setError('No se pudieron cargar los turnos');
-      console.error('Error:', err);
+      setError("No se pudieron cargar los turnos");
+      console.error("Error:", err);
     } finally {
       setCargando(false);
     }
@@ -51,7 +50,7 @@ export const PanelAdmin = () => {
   // Manejar selección/deselección de fechas
   const handleFechaSeleccionada = (fecha) => {
     const nuevasFechas = fechasSeleccionadas.includes(fecha)
-      ? fechasSeleccionadas.filter(f => f !== fecha)
+      ? fechasSeleccionadas.filter((f) => f !== fecha)
       : [...fechasSeleccionadas, fecha];
     setFechasSeleccionadas(nuevasFechas);
   };
@@ -59,14 +58,14 @@ export const PanelAdmin = () => {
   // En tu handleSubmit del PanelAdmin
   const handleSubmit = async () => {
     if (!profesionalId || !profesionalId._id) {
-      Swal.fire('Error', 'Debe seleccionar un profesional válido', 'error');
+      Swal.fire("Error", "Debe seleccionar un profesional válido", "error");
       return;
     }
 
     const turnosParaEnviar = [];
 
-    fechasSeleccionadas.forEach(fecha => {
-      horariosSeleccionados.forEach(horario => {
+    fechasSeleccionadas.forEach((fecha) => {
+      horariosSeleccionados.forEach((horario) => {
         turnosParaEnviar.push({
           fecha: fecha,
           hora_inicio: horario,
@@ -76,15 +75,15 @@ export const PanelAdmin = () => {
           profesional: {
             id: profesionalId._id,
             nombre: profesionalId.nombre,
-            apellido: profesionalId.apellido
-          }
+            apellido: profesionalId.apellido,
+          },
         });
       });
     });
 
     // DEBUG: Ver qué se está enviando
-    console.log('ProfesionalId completo:', profesionalId);
-    console.log('Turnos a enviar:', turnosParaEnviar);
+    console.log("ProfesionalId completo:", profesionalId);
+    console.log("Turnos a enviar:", turnosParaEnviar);
 
     try {
       await crearTurnosPorLote(turnosParaEnviar, navigate);
@@ -94,18 +93,19 @@ export const PanelAdmin = () => {
       setHorariosSeleccionados([]);
       setProfesionalId(null);
       setPaso(1);
-
     } catch (error) {
-      console.error('Error creando turnos:', error);
+      console.error("Error creando turnos:", error);
     }
   };
 
   const calcularHoraFin = (horaInicio) => {
-    const [horas, minutos] = horaInicio.split(':').map(Number);
+    const [horas, minutos] = horaInicio.split(":").map(Number);
     const totalMinutos = horas * 60 + minutos + 60;
     const nuevasHoras = Math.floor(totalMinutos / 60);
     const nuevosMinutos = totalMinutos % 60;
-    return `${nuevasHoras.toString().padStart(2, '0')}:${nuevosMinutos.toString().padStart(2, '0')}`;
+    return `${nuevasHoras.toString().padStart(2, "0")}:${nuevosMinutos
+      .toString()
+      .padStart(2, "0")}`;
   };
 
   // Limpiar selección cuando cambia el profesional
@@ -117,22 +117,51 @@ export const PanelAdmin = () => {
 
   return (
     <div>
-      <NavBar user={user} />
+      {/* ===== HERO ADMIN ===== */}
+      <header
+        className="admin-hero"
+        style={{ backgroundImage: "url(/pilatesadmin-hero.jpg)" }}
+      >
+        <div className="admin-hero__overlay">
+          <div className="admin-hero__navbar">
+            <NavBar user={user} />
+          </div>
+
+          {/* Copy del hero (frases) */}
+          <div className="admin-hero__copy admin-hero__copy--admin">
+            <p className="admin-hero__quote">
+              Cada organización,
+              <br />
+              cada plan y cada
+              <br />
+              decisión es una manera
+              <br />
+              de recargar la energía
+              <br />
+              de todo el equipo
+            </p>
+            <p className="admin-hero__tag">nuestro compromiso</p>
+          </div>
+        </div>
+      </header>
 
       <Container fluid>
-
-
-
         {/* Header con Pasos */}
-        <Row className="mb-4">
+        <Row className="mb-4 admin-intro">
           <Col>
-            <h2>Crear Turnos Masivos</h2>
+            <h2>Crear Turnos</h2>
             <div className="steps mb-3">
-              <span className={paso >= 1 ? 'text_m fw-bold' : 'text-muted'}>1. Profesional</span>
-              {' → '}
-              <span className={paso >= 2 ? 'text_m fw-bold' : 'text-muted'}>2. Fechas</span>
-              {' → '}
-              <span className={paso >= 3 ? 'text_m fw-bold' : 'text-muted'}>3. Horarios</span>
+              <span className={paso >= 1 ? "text_m fw-bold" : "text-muted"}>
+                1. Profesional
+              </span>
+              {" → "}
+              <span className={paso >= 2 ? "text_m fw-bold" : "text-muted"}>
+                2. Fechas
+              </span>
+              {" → "}
+              <span className={paso >= 3 ? "text_m fw-bold" : "text-muted"}>
+                3. Horarios
+              </span>
             </div>
           </Col>
         </Row>
@@ -142,13 +171,14 @@ export const PanelAdmin = () => {
           <Col lg={8}>
             {paso === 1 && (
               <Card className="mb-4">
-                <Card.Body className='bg_head_calendar'>
+                <Card.Body className="bg_head_calendar">
                   <h5> Paso 1: Seleccionar Profesional</h5>
                   <SelectEmpleado
                     onProfesionalSelected={setProfesionalId}
-                    value={profesionalId}  // ← Esto debe ser el objeto empleado o el ID
+                    value={profesionalId}
                   />
-                  <Button variant="light"
+                  <Button
+                    variant="light"
                     className="mt-3"
                     disabled={!profesionalId}
                     onClick={() => setPaso(2)}
@@ -161,22 +191,32 @@ export const PanelAdmin = () => {
 
             {paso === 2 && (
               <Card className="mb-4">
-                <Card.Body className='bg_head_calendar'>
-                  <h5> Paso 2: Seleccionar Fechas para {profesionalId?.nombre}</h5>
+                <Card.Body className="bg_head_calendar">
+                  <h5>
+                    {" "}
+                    Paso 2: Seleccionar Fechas para {profesionalId?.nombre}
+                  </h5>
                   <Alert variant="info" className="small">
-                    <strong>Instrucciones:</strong> Haz clic en las fechas disponibles del calendario.
-                    Cada fecha permite máximo 2 turnos. Las fechas llenas aparecen en rojo.
+                    <strong>Instrucciones:</strong> Haz clic en las fechas
+                    disponibles del calendario. Cada fecha permite máximo 2
+                    turnos. Las fechas llenas aparecen en rojo.
                   </Alert>
 
                   {/* Resumen de selección actual */}
                   {fechasSeleccionadas.length > 0 && (
                     <Alert variant="success" className="small">
-                      <strong>Fechas seleccionadas: {fechasSeleccionadas.length}</strong>
+                      <strong>
+                        Fechas seleccionadas: {fechasSeleccionadas.length}
+                      </strong>
                       <br />
-                      {fechasSeleccionadas.slice(0, 5).map(fecha =>
-                        new Date(fecha).toLocaleDateString('es-AR')
-                      ).join(', ')}
-                      {fechasSeleccionadas.length > 5 && ` ... y ${fechasSeleccionadas.length - 5} más`}
+                      {fechasSeleccionadas
+                        .slice(0, 5)
+                        .map((fecha) =>
+                          new Date(fecha).toLocaleDateString("es-AR")
+                        )
+                        .join(", ")}
+                      {fechasSeleccionadas.length > 5 &&
+                        ` ... y ${fechasSeleccionadas.length - 5} más`}
                     </Alert>
                   )}
                 </Card.Body>
@@ -185,10 +225,12 @@ export const PanelAdmin = () => {
 
             {paso === 3 && (
               <Card className="mb-4">
-                <Card.Body className='bg_head_calendar'>
+                <Card.Body className="bg_head_calendar">
                   <h5> Paso 3: Seleccionar Horarios</h5>
                   <Alert variant="warning" className="small">
-                    <strong>Recordatorio:</strong> Creando turnos para {profesionalId?.nombre} en {fechasSeleccionadas.length} fechas
+                    <strong>Recordatorio:</strong> Creando turnos para{" "}
+                    {profesionalId?.nombre} en {fechasSeleccionadas.length}{" "}
+                    fechas
                   </Alert>
                 </Card.Body>
               </Card>
@@ -198,7 +240,7 @@ export const PanelAdmin = () => {
           {/* Columna Lateral - Controles del Paso Actual */}
           <Col lg={4}>
             {paso === 2 && (
-              <Card className="sticky-top" style={{ top: '20px' }}>
+              <Card className="sticky-top" style={{ top: "20px" }}>
                 <Card.Header className="bg_head_calendar text-white">
                   <h6 className="mb-0">Controles de Fechas</h6>
                 </Card.Header>
@@ -223,14 +265,19 @@ export const PanelAdmin = () => {
                     <div className="mt-3">
                       <hr />
                       <h6>Fechas seleccionadas:</h6>
-                      <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
-                        {fechasSeleccionadas.map(fecha => (
-                          <div key={fecha} className="d-flex justify-content-between align-items-center small py-1">
-                            <span>{new Date(fecha).toLocaleDateString('es-AR', {
-                              weekday: 'short',
-                              day: 'numeric',
-                              month: 'short'
-                            })}</span>
+                      <div style={{ maxHeight: "200px", overflowY: "auto" }}>
+                        {fechasSeleccionadas.map((fecha) => (
+                          <div
+                            key={fecha}
+                            className="d-flex justify-content-between align-items-center small py-1"
+                          >
+                            <span>
+                              {new Date(fecha).toLocaleDateString("es-AR", {
+                                weekday: "short",
+                                day: "numeric",
+                                month: "short",
+                              })}
+                            </span>
                             <Button
                               variant="outline-danger"
                               size="sm"
@@ -256,8 +303,8 @@ export const PanelAdmin = () => {
             )}
 
             {paso === 3 && (
-              <Card className="sticky-top" style={{ top: '20px' }}>
-                <Card.Header className='bg_head_calendar text-white'>
+              <Card className="sticky-top" style={{ top: "20px" }}>
+                <Card.Header className="bg_head_calendar text-white">
                   <h6 className="mb-0">Controles de Horarios</h6>
                 </Card.Header>
                 <Card.Body>
@@ -273,7 +320,10 @@ export const PanelAdmin = () => {
                       <strong> {horariosSeleccionados.length} horarios</strong>
                     </p>
                     <h5 className="text-primary">
-                      Total: {fechasSeleccionadas.length * horariosSeleccionados.length} turnos
+                      Total:{" "}
+                      {fechasSeleccionadas.length *
+                        horariosSeleccionados.length}{" "}
+                      turnos
                     </h5>
                   </div>
 
@@ -289,7 +339,7 @@ export const PanelAdmin = () => {
                       disabled={horariosSeleccionados.length === 0}
                       onClick={handleSubmit}
                     >
-                       Crear Turnos
+                      Crear Turnos
                     </Button>
                   </div>
                 </Card.Body>
@@ -305,7 +355,6 @@ export const PanelAdmin = () => {
               turnos={turnos}
               cargando={cargando}
               error={error}
-
               // Modo selección solo activo en paso 2
               modoSeleccion={paso === 2}
               profesionalSeleccionado={profesionalId}
@@ -317,12 +366,8 @@ export const PanelAdmin = () => {
         </Row>
 
         {/* SECCIÓN DE MOSTRAR TURNOS */}
-
-
-
         <Row>
-          <Col className='pt-5 '>
-          <h2>Historial de Turnos </h2>
+          <Col className="pt-5 ">            
             {cargando ? (
               <Card className="text-center py-5">
                 <Card.Body>
@@ -334,7 +379,7 @@ export const PanelAdmin = () => {
               </Card>
             ) : error ? (
               <Alert variant="danger" className="text-center">
-                <h5>❌ Error al cargar los turnos</h5>
+                <h5>Error al cargar los turnos</h5>
                 <p>{error}</p>
                 <Button variant="outline-danger" onClick={cargarTurnos}>
                   Reintentar
@@ -351,6 +396,5 @@ export const PanelAdmin = () => {
         </Row>
       </Container>
     </div>
-
   );
-}
+};

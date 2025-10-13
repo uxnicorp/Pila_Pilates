@@ -30,9 +30,9 @@ const Calendario = ({
     return turno.reservas.some((reserva) => reserva.usuarioId === usuario.id);
   };
 
-  // Manejar clic en evento (turno existente)
+  // Manejar click en evento (turno existente)
   const handleEventClick = (info) => {
-    if (modoSeleccion) return; // No hacer nada en modo selección para admin
+    if (modoSeleccion) return; // No hace nada en modo selección para admin
 
     const turno = turnos.find((t) => {
       const fechaTurno =
@@ -53,7 +53,7 @@ const Calendario = ({
     }
   };
 
-  // Manejar clic en fecha (solo en modo selección para admin)
+  // Manejar click en fecha (solo en modo selección para admin)
   const handleDateClick = (info) => {
     if (!modoSeleccion || !profesionalSeleccionado) return;
 
@@ -316,7 +316,7 @@ const Calendario = ({
           <div className="calendar-container">
             <FullCalendar
               ref={calendarRef}
-              plugins={[dayGridPlugin, interactionPlugin]} // REMOVER timeGridPlugin de aquí
+              plugins={[dayGridPlugin, interactionPlugin]} 
               initialView="dayGridMonth"
               locales={[esLocale]}
               locale="es"
@@ -327,7 +327,7 @@ const Calendario = ({
               headerToolbar={{
                 left: "prev,next",
                 center: "title",
-                right: "dayGridMonth", // REMOVER timeGridWeek y timeGridDay
+                right: "dayGridMonth", 
               }}
               height="500px"
               events={formatearEventos()}

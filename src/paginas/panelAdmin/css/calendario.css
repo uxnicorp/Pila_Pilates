@@ -1,99 +1,164 @@
-/* Calendario.css */
-.calendar-container {
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #f8f9fa;
+.calendar-header,
+.bg_head_calendar {
+  background-color: #3e2214 !important; 
+  color: #a1835a !important;             
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
 }
 
-.fc-header-toolbar {
-  margin-bottom: 10px !important;
-  padding: 8px;
-  background-color: #e9ecef;
-  border-radius: 6px;
+.bg_head_calendar h5,
+.calendar-header .calendar-title,
+.bg_head_calendar .card-title,
+.bg_head_calendar h6 {
+  color: #a1835a !important;
+  font-family: "Merriweather", serif;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
 }
 
-.fc-toolbar-title {
-  font-size: 1.1rem;
+.bg_head_calendar .bi,
+.calendar-header .calendar-title .bi {
+  font-size: 1.2rem;
+  line-height: 1;
+  position: relative;
+  top: .02em;
+}
+
+.bg_head_calendar .form-text,
+.calendar-header .calendar-subtitle {
+  margin-top: .15rem;
+  color: #a1835a !important;
   font-weight: 600;
-  color: #495057;
 }
 
-.fc-prev-button, 
-.fc-next-button {
-  background-color: #6c757d !important;
-  border-color: #6c757d !important;
-  padding: 0.25rem 0.5rem;
+/* ====== TOOLBAR FullCalendar (prev/next, "Mes", título) ====== */
+/* Franja donde aparece "octubre de 2025" */
+.calendar-container .fc .fc-toolbar.fc-header-toolbar {
+  background-color: #a1835a;
+  border-radius: .5rem;
+  padding: 12px 14px;
 }
 
-.fc-daygrid-day {
-  transition: background-color 0.2s;
+/* Título del mes */
+.calendar-container .fc .fc-toolbar-title {
+  color: #3e2214;
+  font-family: "Merriweather", serif;
+  font-weight: 800;
 }
 
-.fc-daygrid-day.modo-seleccion {
+/* Botones prev/next y "Mes" */
+.calendar-container .fc .fc-button,
+.calendar-container .fc .fc-button:disabled,
+.calendar-container .fc .fc-button-primary,
+.calendar-container .fc .fc-button-primary:disabled,
+.calendar-container .fc .fc-button-group .fc-button {
+  background-color: #3e2214 !important;
+  border-color: #3e2214 !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+/* Hover/activo */
+.calendar-container .fc .fc-button:hover,
+.calendar-container .fc .fc-button:focus,
+.calendar-container .fc .fc-button:active,
+.calendar-container .fc .fc-button.fc-button-active {
+  background-color: #a1835a !important;
+  border-color: #a1835a !important;
+  color: #3e2214 !important;
+}
+
+/* Asegurar color de flechas/íconos */
+.calendar-container .fc .fc-button .fc-icon {
+  color: inherit !important;
+}
+
+/* ====== Estilos para eventos del calendario ====== */
+.turno-disponible {
   cursor: pointer;
+  opacity: 1;
+  transition: transform .15s ease, opacity .15s ease;
+}
+.turno-disponible:hover { opacity: 0.9; transform: scale(1.02); }
+
+.turno-lleno { opacity: 0.6; cursor: not-allowed; }
+
+.evento-calendario { padding: 2px; font-size: 0.8em; }
+
+.fecha-seleccionada { font-weight: bold; }
+
+/* ====== Colores de textos del calendario ====== */
+
+/* Días de la semana (lun, mar, mié...) */
+.calendar-container .fc .fc-col-header-cell-cushion,
+.calendar-container .fc .fc-col-header-cell-cushion:hover,
+.calendar-container .fc .fc-col-header-cell-cushion:focus {
+  color: #3e2214 !important;
 }
 
-.fc-daygrid-day.modo-seleccion:hover {
-  background-color: #e3f2fd;
+/* Números de cada día (1, 2, 3...) */
+.calendar-container .fc .fc-daygrid-day-number,
+.calendar-container .fc .fc-daygrid-day-number:hover,
+.calendar-container .fc .fc-daygrid-day-number:focus {
+  color: #3e2214 !important;
 }
 
-.fc-daygrid-day.fc-day-disabled {
-  background-color: #f8d7da;
-  cursor: not-allowed;
+/* Texto de los eventos (hora/servicio/profe) */
+.calendar-container .fc .fc-daygrid-event,
+.calendar-container .fc .fc-daygrid-event a,
+.calendar-container .fc .fc-daygrid-event .fc-event-main,
+.calendar-container .fc .fc-daygrid-event .fc-event-main * {
+  color: #3e2214 !important;
 }
 
-.disponibilidad-indicator {
-  font-size: 0.7em;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 2px;
+/* Color para "Leyenda:" */
+.leyenda strong { color: #3e2214 !important; }
+
+/* Quitar el fondo amarillo del día de hoy */
+.calendar-container .fc .fc-daygrid-day.fc-day-today,
+.calendar-container .fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-frame,
+.calendar-container .fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-top {
+  background-color: inherit !important;  
+}
+/* Borde del "hoy" */
+.calendar-container .fc .fc-daygrid-day.fc-day-today { border-color: inherit !important; }
+
+/* Fondo de grilla y bordes */
+.calendar-container .fc-theme-standard .fc-scrollgrid,
+.calendar-container .fc .fc-daygrid-day,
+.calendar-container .fc .fc-daygrid-day-frame {
+  background-color: white !important;
+}
+.calendar-container .fc-theme-standard td,
+.calendar-container .fc-theme-standard th,
+.calendar-container .fc .fc-col-header-cell,
+.calendar-container .fc .fc-daygrid-day,
+.calendar-container .fc .fc-scrollgrid,
+.calendar-container .fc .fc-scrollgrid-sync-table {
+  border-color: #b0b7bc !important;
 }
 
-.disponibilidad-indicator.disponible {
-  color: #28a745;
-}
-
-.disponibilidad-indicator.llena {
-  color: #dc3545;
-}
-
-.fc-event {
-  border-radius: 4px;
-  border: none;
-}
-
-.fc-event.fecha-seleccionada {
-  font-weight: bold;
-}
+/* ====== Baseline ====== */
+.calendar-container { padding: 10px; border-radius: 8px; background-color: #f8f9fa; }
+.fc-header-toolbar { margin-bottom: 10px !important; padding: 8px; border-radius: 6px; }
+.fc-daygrid-day { transition: background-color 0.2s; }
+.fc-daygrid-day.modo-seleccion { cursor: pointer; }
+.fc-daygrid-day.modo-seleccion:hover { background-color: #e3f2fd; }
+.fc-daygrid-day.fc-day-disabled { background-color: #f8d7da; cursor: not-allowed; }
+.disponibilidad-indicator { font-size: 0.7em; font-weight: bold; text-align: center; margin-top: 2px; }
+.disponibilidad-indicator.disponible { color: #28a745; }
+.disponibilidad-indicator.llena { color: #dc3545; }
+.fc-event { border-radius: 4px; border: none; }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .calendar-container {
-    padding: 5px;
-  }
-  
-  .fc-header-toolbar {
-    padding: 5px;
-    margin-bottom: 5px !important;
-  }
-  
-  .fc-toolbar-title {
-    font-size: 1rem;
-  }
-  
-  .disponibilidad-indicator {
-    font-size: 0.6em;
-  }
+  .calendar-container { padding: 5px; }
+  .fc-header-toolbar { padding: 5px; margin-bottom: 5px !important; }
+  .disponibilidad-indicator { font-size: 0.6em; }
 }
-
 @media (max-width: 576px) {
-  .fc-header-toolbar {
-    flex-direction: column;
-    gap: 5px;
-  }
-  
-  .fc-toolbar-chunk {
-    width: 100%;
-    text-align: center;
-  }
+  .fc-header-toolbar { flex-direction: column; gap: 5px; }
+  .fc-toolbar-chunk { width: 100%; text-align: center; }
 }

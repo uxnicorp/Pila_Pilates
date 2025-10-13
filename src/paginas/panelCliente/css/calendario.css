@@ -1,7 +1,7 @@
 /* ====== HEADER del calendario ====== */
 .calendar-header {
-  background-color: #3e2214 !important;  /* fondo */
-  color: #a1835a !important;             /* texto */
+  background-color: #3e2214 !important; 
+  color: #a1835a !important;             
   border-top-left-radius: .5rem;
   border-top-right-radius: .5rem;
 }
@@ -43,7 +43,7 @@
   font-weight: 800;
 }
 
-/* Botones prev/next y "Mes" (misma forma, nuevos colores) */
+/* Botones prev/next y "Mes" */
 .calendar-container .fc .fc-button,
 .calendar-container .fc .fc-button:disabled,
 .calendar-container .fc .fc-button-primary,
@@ -140,7 +140,7 @@
 .calendar-container .fc .fc-daygrid-day.fc-day-today,
 .calendar-container .fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-frame,
 .calendar-container .fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-top {
-  background-color: inherit !important;   /* se iguala al resto */
+  background-color: inherit !important;  
 }
 
 /* (opcional) por si algún tema aplica un borde extra al "hoy" */
@@ -155,7 +155,7 @@
   background-color: white !important;
 }
 
-/* Bordes de la grilla (celdas y cabecera) del mismo color para “fundir” las líneas */
+/* Bordes de la grilla (celdas y cabecera) */
 .calendar-container .fc-theme-standard td,
 .calendar-container .fc-theme-standard th,
 .calendar-container .fc .fc-col-header-cell,
@@ -166,11 +166,10 @@
 }
 
 /* ===========================
-   Modal RESERVA – tema PilaPilates
-   (igual al modal de INSTRUCCIONES)
+   Modal RESERVA – tema PilaPilates   
    =========================== */
 
-/* Paleta (opcional, por claridad) */
+/* Paleta */
 :root {
   --pp-brown: #3e2214;
   --pp-sand:  #a1835a;
@@ -179,7 +178,7 @@
 
 /* Cuerpo del modal */
 .modal-reserva-content {
-  background-color: var(--pp-sand) !important; /* marrón claro */
+  background-color: var(--pp-sand) !important; 
   border: none;
   color: #212529;
   border-radius: 12px;
@@ -196,7 +195,7 @@
 
 /* Header del modal (barra superior) */
 .modal-reserva .modal-header {
-  background: var(--pp-cream) !important;  /* crema */
+  background: var(--pp-cream) !important;  
   border-bottom: 1px solid rgba(0,0,0,.15);
 }
 .modal-reserva .modal-header .modal-title {
@@ -212,7 +211,7 @@
 }
 .modal-reserva .btn-close:hover { opacity: 1; }
 
-/* Alertas dentro del modal (info / warning) con look crema */
+/* Alertas dentro del modal (info / warning)*/
 .modal-reserva-content .alert,
 .modal-reserva-content .alert-info,
 .modal-reserva-content .alert-warning {
@@ -222,15 +221,13 @@
   border-radius: .5rem;
 }
 
-/* Footer: no tocamos colores de los botones de acción (verde/azul),
-   solo mantenemos el redondeado y consistencia si usás .btn-primary adentro */
 .modal-reserva .modal-footer .btn-primary {
   border-radius: 9999px;
   font-weight: 700;
   padding: 10px 22px;
 }
 
-/* ====== MODAL RESERVA – Misma paleta que el de Instrucciones ====== */
+/* ====== MODAL RESERVA ====== */
 .modal-reserva-content{
   background-color:#a1835a !important;
   border:none;
@@ -265,7 +262,7 @@
   margin-right:.35rem;
 }
 
-/* Botonera: los 3 botones idénticos al “Entendido” */
+/* Botonera: */
 .modal-reserva .modal-footer{
   border-top:1px solid rgba(0,0,0,.15);
   display:flex;
@@ -304,14 +301,14 @@
   margin-right:.35rem;
 }
 
-/* =========================================================
-   ListaTurnosCliente – Skin empleado (misma paleta/estética)
-   ========================================================= */
+/* =====================
+   ListaTurnosCliente  
+   ===================== */
 
 /* Header "Mis Turnos Reservados" */
 .panel-cliente-page .lista-turnos > .card.mb-4.border-0.shadow-sm > .card-header {
-  background: #fff8ef !important;          /* mismo fondo que empleado */
-  color: #3e2214 !important;                /* mismo color de texto */
+  background: #fff8ef !important;          
+  color: #3e2214 !important;                
   border-bottom: 1px solid rgba(0,0,0,.15);
 }
 .panel-cliente-page .lista-turnos > .card .bi { color: #3e2214 !important; }
@@ -339,7 +336,7 @@
 
 /* Cuerpo expandido */
 .panel-cliente-page .lista-turnos .accordion-body {
-  background-color: #fff8ef !important;    /* mismo “papel” crema */
+  background-color: #fff8ef !important;    
   border-radius: .5rem;
 }
 
@@ -377,8 +374,6 @@
   color: #3e2214 !important;
 }
 
-/* Badges: dejamos sus colores originales (Pilates/Yoga/...) 
-   pero nos aseguramos de que el resto de textos mantenga la marca */
 .panel-cliente-page .lista-turnos .badge { font-weight: 600; }
 
 /* Botones dentro del detalle (p.ej. Cancelar reserva) */
