@@ -145,7 +145,7 @@ export const PanelAdmin = () => {
         </div>
       </header>
 
-      <Container fluid>
+      <Container fluid id="crear-turnos-section">
         {/* Header con Pasos */}
         <Row className="mb-4 admin-intro">
           <Col>
@@ -366,7 +366,7 @@ export const PanelAdmin = () => {
         </Row>
 
         {/* SECCIÓN DE MOSTRAR TURNOS */}
-        <Row>
+        <Row id="historial-section">
           <Col className="pt-5 ">            
             {cargando ? (
               <Card className="text-center py-5">

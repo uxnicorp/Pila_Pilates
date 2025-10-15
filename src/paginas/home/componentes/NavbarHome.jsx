@@ -60,8 +60,8 @@ export default function NavBar() {
     );
 
     // Calculamos el ancho exacto basado en el número de opciones
-    const desktopOptionsWidth = menuOptions.length * 140;
-    const mobileOptionsWidth = 200;
+    const desktopOptionsWidth = menuOptions.length * 120;
+    const mobileOptionsWidth = 150;
     const titleWidth = 120;
     const buttonsWidth = 60;
 
@@ -269,7 +269,7 @@ export default function NavBar() {
 
                             {/* Botón derecho (+ cuando expandido, - cuando comprimido) */}
                             <button
-                                onClick={toggleExpansion}
+                                
                                 style={toggleButtonStyle}
                                 onMouseEnter={handleToggleMouseEnter}
                                 onMouseLeave={handleToggleMouseLeave}

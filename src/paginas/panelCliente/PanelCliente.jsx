@@ -140,7 +140,7 @@ export const PanelCliente = () => {
       {/* ===== CONTENIDO ===== */}
       <Container fluid className="mt-4">
         {/* Header informativo */}
-        <Row className="mb-4">
+        <Row className="mb-4" id="calendario-section">
           <Col>
             <Card className="bg-gradient-info text-white">
               <Card.Body>
