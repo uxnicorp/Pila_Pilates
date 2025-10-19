@@ -29,9 +29,36 @@
   <script>
     window.OneSignalDeferred = window.OneSignalDeferred || [];
     OneSignalDeferred.push(async function(OneSignal) {
+      console.log("🔧 Configurando OneSignal...");
+      
       await OneSignal.init({
-        appId: "5e0ae9ac-b242-404f-857c-98a1b5c98a97",
+        appId: "c15d7bf2-af80-4206-b031-a79f74a540c7",
+        allowLocalhostAsSecureOrigin: true,
+        
+        // Configuración del Service Worker
+        serviceWorkerPath: '/OneSignalSDKWorker.js',
+        serviceWorkerParam: { scope: '/' },
+        
+        // Configuración de prompts
+        promptOptions: {
+          slidedown: {
+            prompts: [
+              {
+                type: "push",
+                autoPrompt: false, // Lo controlamos manualmente desde el botón
+                text: {
+                  actionMessage: "¿Querés recibir recordatorios de tus clases de pilates?",
+                  acceptButton: "Sí, activar",
+                  cancelButton: "Ahora no"
+                }
+              }
+            ]
+          }
+        }
       });
+      
+      console.log("✅ OneSignal inicializado correctamente");
+      console.log("📊 App ID:", "c15d7bf2-af80-4206-b031-a79f74a540c7");
     });
   </script>
 </head>
@@ -39,6 +66,9 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+  <!-- Scripts de debugging de OneSignal (temporal) -->
+  <script src="/verificarOneSignal.js"></script>
+  <script src="/resuscribir.js"></script>
 </body>
 
 </html>

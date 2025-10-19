@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
 import AppRoutes from "./rutas/AppRoutes"
-import OneSignal from "react-onesignal"
 
 /**
  * INTEGRACIÓN DE ONESIGNAL (NOTIFICACIONES PUSH)
  *
  * ¿Qué hace este archivo?
- * - Inicializa el SDK de OneSignal para habilitar notificaciones push en la web.
- * - La función OneSignal.init() se ejecuta al montar la app y configura el servicio con tu appId.
- * - La opción allowLocalhostAsSecureOrigin permite probar notificaciones en local (solo en HTTPS o localhost).
+ * - OneSignal se inicializa directamente en index.html con el script nativo
+ * - Aquí solo verificamos que esté disponible para usar en los componentes
  *
  * ¿Cómo funciona?
  * - Cuando el usuario acepta las notificaciones (desde el botón en PanelCliente), OneSignal registra el playerId.
@@ -25,10 +23,32 @@ import OneSignal from "react-onesignal"
 function App() {
 
   useEffect(() => {
-    OneSignal.init({
-      appId: "5e0ae9ac-b242-404f-857c-98a1b5c98a97",
-      allowLocalhostAsSecureOrigin: true // útil para pruebas locales
-    });
+    // OneSignal ya se inicializa en index.html, aquí solo verificamos que esté listo
+    const checkOneSignalReady = () => {
+      if (window.OneSignal) {
+        console.log("✅ OneSignal está disponible y listo");
+        
+        // Debug: Mostrar información de suscripción actual
+        setTimeout(async () => {
+          try {
+            if (window.OneSignal.User?.PushSubscription) {
+              console.log("🔍 DEBUG - Estado actual de OneSignal:");
+              console.log("  - ID:", window.OneSignal.User.PushSubscription.id);
+              console.log("  - Token:", window.OneSignal.User.PushSubscription.token);
+              console.log("  - OptedIn:", window.OneSignal.User.PushSubscription.optedIn);
+              console.log("  - Permiso:", await window.OneSignal.Notifications.permission);
+            }
+          } catch (e) {
+            console.log("⚠️ No se pudo obtener info de debug:", e);
+          }
+        }, 2000); // Esperar 2 segundos para que OneSignal se inicialice completamente
+      } else {
+        console.log("⏳ Esperando a que OneSignal esté disponible...");
+        setTimeout(checkOneSignalReady, 500);
+      }
+    };
+    
+    checkOneSignalReady();
   }, []);
 
   return (
