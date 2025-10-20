@@ -13,3 +13,9 @@
     font-family: "Poppins", sans-serif !important;
     color: var(--marronClaro);
 }
+
+.container-clases {
+    background-color: #fff8ef;    
+    padding-top: 25px;
+    padding-bottom: 25px;
+}

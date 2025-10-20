@@ -6,7 +6,7 @@ import "./css/Clases.css"
 const Clases = () => {
     return (
         <section className="py-5">
-            <div className="container">
+            <div className="container-clases">
                 <h2 className="text-center mb-5">Conocé nuestras clases</h2>
                 <div className="row g-5 align-items-start">
                     {/* PILATES REFORMER */}
