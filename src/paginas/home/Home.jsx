@@ -27,7 +27,7 @@ const Home = () => {
 
     // Función para abrir WhatsApp
     const openWhatsApp = () => {
-        const phoneNumber = "5491112345678"; // Reemplaza con tu número
+        const phoneNumber = "5491162322732"; // Reemplaza con tu número
         const message = "Hola! Me interesa conocer más sobre Pila Pilates";
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');
